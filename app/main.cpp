@@ -25,14 +25,14 @@
 
 int main() {
     double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, V[3] = {-2,-3,-3}; //angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
-    Vector<SIZE> x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v(V); // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
+    Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v(V); // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
     Cuboid Cub(x, y, z, t,a,b,c,d);   // Prostokat
     
     PzG::LaczeDoGNUPlota  Lacze;    // Ta zmienna jest potrzebna do wizualizacji
                                     // rysunku Prostokata
     //char option = '0', animation = '0'; // Zmienne do oslugi menu
     std::cout<<"dfsdfsdfsdsf";
-    Scene scene;
+    Scene scene(Cub); // Utworzenie sceny
 //-------------------------------------------------------
     //  Wspolrzedne wierzcholkow beda zapisywane w pliku "Prostokat.dat"
     //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
@@ -54,9 +54,11 @@ int main() {
     Lacze.UstawZakresY(-300,300);
     Lacze.UstawZakresX(-300,300);
     Lacze.UstawZakresZ(-300,300);
-    //scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat"); 
+    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat"); 
     Lacze.Rysuj();
     std::cin.ignore(10000,'\n');
+
+
     /* try {
         Rec.Sides(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
         Lacze.Rysuj(); // Wyswietlenie prostokata

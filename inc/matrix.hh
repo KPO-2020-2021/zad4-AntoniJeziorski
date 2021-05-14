@@ -69,7 +69,7 @@ Matrix<Size>::Matrix() {
 
 template <unsigned int Size>
 Matrix<Size>::Matrix(double tmp[Size][Size]) {
-    if((SIZE < 0) || (SIZE > 2)) {
+    if((SIZE < 0) || (SIZE > 3)) {
         throw std::runtime_error("Niepoprawny rozmiar macierzy");
     }
     else {

@@ -208,14 +208,9 @@ Cuboid::Cuboid(Vector3D a, Vector3D b, Vector3D c, Vector3D d, Vector3D e, Vecto
  */
 
 Cuboid::Cuboid() {
-    DefaultCorners[0] = 0;
-    DefaultCorners[1] = 0;
-    DefaultCorners[2] = 0;
-    DefaultCorners[3] = 0;
-    DefaultCorners[4] = 0;
-    DefaultCorners[5] = 0;
-    DefaultCorners[6] = 0;
-    DefaultCorners[7] = 0;
+    Vector3D x;
+    for(int i = 0; i < CUBE; ++i)
+        DefaultCorners[i] = x;
 }
 
 
@@ -240,7 +235,7 @@ bool Cuboid::ZapisWspolrzednychDoPliku( const char *sNazwaPliku) {
     }
 
     StrmPlikowy << *this;
-    StrmPlikowy << this->Corners[0];
+    StrmPlikowy << Corners[0];
     StrmPlikowy << std::endl;
     StrmPlikowy << Corners[1];
 

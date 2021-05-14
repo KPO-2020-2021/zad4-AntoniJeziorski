@@ -16,7 +16,7 @@ class Scene {
 
     public:
 
-        //Scene();
+        Scene(Cuboid);
 
         void kon(Cuboid);
 
