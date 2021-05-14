@@ -1,0 +1,4 @@
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir

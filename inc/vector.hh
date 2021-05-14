@@ -2,36 +2,38 @@
 
 #include "size.hh"
 #include <iostream>
+#include <iomanip>
 
+
+template <unsigned int Size>
 class Vector {
 
-private:
+    double size[Size];     //Tablica  wektora
 
-    double size[SIZE];     //Tablica wektora
+    public:
 
-public:
+        Vector<Size>(); // Konstruktor bezparametryczny
 
-    Vector();
+        Vector<Size>(double [Size]); // Konstruktor parametryczny
 
-    Vector(double [SIZE]);
+        Vector<Size> operator + (const Vector<Size> &v); // Operator dodawania wektorow
 
-    Vector operator + (const Vector &v);
+        Vector<Size> operator - (const Vector<Size> &v); // Operator odejmowania wektorow
 
-    Vector operator - (const Vector &v);
+        Vector<Size> operator * (const double &tmp); // Operator mnozenia wektora razy double
 
-    Vector operator * (const double &tmp);
+        Vector<Size> operator / (const double &tmp); // Operator dzielenia wektora przez double
 
-    Vector operator / (const double &tmp);
+        const double &operator [] (unsigned int index) const; // Operator indeksujacy dla odczytu
 
-    const double &operator [] (int index) const;
-
-    double &operator [] (int index);
-
+        double &operator [] (unsigned int index); // Operator indeksujacy dla zapisu
 };
 
-std::ostream &operator << (std::ostream &out, Vector const &tmp);
+template <unsigned int Size>
+std::ostream &operator << (std::ostream &out, Vector<Size> const &tmp); // Operator bitowy <<
 
-std::istream &operator >> (std::istream &in, Vector &tmp);
+template <unsigned int Size>
+std::istream &operator >> (std::istream &in, Vector<Size> &tmp); // Operator bitowy >>
 
 /******************************************************************************
  |  Konstruktor klasy Vector.                                                 |
@@ -40,8 +42,9 @@ std::istream &operator >> (std::istream &in, Vector &tmp);
  |  Zwraca:                                                                   |
  |      Tablice wypelniona wartoscia 0.                                       |
  */
-Vector::Vector() {
-    for (int i = 0; i < SIZE; ++i) {
+template <unsigned int Size>
+Vector<Size>::Vector() {
+    for (unsigned int i = 0; i < Size; ++i) {
         size[i] = 0;
     }
 }
@@ -54,10 +57,15 @@ Vector::Vector() {
  |  Zwraca:                                                                   |
  |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
  */
-
-Vector::Vector(double tmp[SIZE]) {
-    for (int i = 0; i < SIZE; ++i) {
-        size[i] = tmp[i];
+template <unsigned int Size>
+Vector<Size>::Vector(double tmp[Size]) {
+    if(Size < 0) {
+        throw std::runtime_error("Niepoprawny rozmiar wektora ");
+    }
+    else {
+        for (unsigned int i = 0; i < Size; ++i) {
+            size[i] = tmp[i];
+        }
     }
 }
 
@@ -71,9 +79,11 @@ Vector::Vector(double tmp[SIZE]) {
  |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
  |      na parametr.                                                          |
  */
-Vector Vector::operator + (const Vector &v) {
-    Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+
+template <unsigned int Size>
+Vector<Size> Vector<Size>::operator + (const Vector<Size> &v) {
+    Vector<Size> result;
+    for (unsigned int i = 0; i < SIZE; ++i) {
         result[i] = size[i] += v[i];
     }
     return result;
@@ -89,9 +99,11 @@ Vector Vector::operator + (const Vector &v) {
  |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
  |      na parametr.                                                          |
  */
-Vector Vector::operator - (const Vector &v) {
-    Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+
+template <unsigned int Size>
+Vector<Size> Vector<Size>::operator - (const Vector<Size> &v) {
+    Vector<Size> result;
+    for (unsigned int i = 0; i < Size; ++i) {
         result[i] = size[i] -= v[i];
     }
     return result;
@@ -108,9 +120,10 @@ Vector Vector::operator - (const Vector &v) {
  |      na parametr.                                                          |
  */
 
-Vector Vector::operator * (const double &tmp) {
+template <unsigned int Size>
+Vector<Size> Vector<Size>::operator * (const double &tmp) {
     Vector result;
-    for (int i = 0; i < SIZE; ++i) {
+    for (unsigned int i = 0; i < Size; ++i) {
         result[i] = size[i] *= tmp;
     }
     return result;
@@ -126,11 +139,13 @@ Vector Vector::operator * (const double &tmp) {
  |      Iloraz dwoch skladnikow przekazanych jako wskaznik                    |
  |      na parametr.                                                          |
  */
-
-Vector Vector::operator / (const double &tmp) {
+template <unsigned int Size>
+Vector<Size> Vector<Size>::operator / (const double &tmp) {
     Vector result;
-
-    for (int i = 0; i < SIZE; ++i) {
+    if (tmp == 0) {
+        throw("Dzielnie przez 0");
+    }
+    for (unsigned int i = 0; i < Size; ++i) {
         result[i] = size[i] / tmp;
     }
 
@@ -145,10 +160,11 @@ Vector Vector::operator / (const double &tmp) {
  |  Zwraca:                                                                   |
  |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
  */
-const double &Vector::operator [] (int index) const {
-    if (index < 0 || index >= SIZE) {
-        std::cerr << "Error: Wektor jest poza zasiegiem!" << std::endl;
-    } // lepiej byłoby rzucić wyjątkiem stdexcept
+template <unsigned int Size>
+const double &Vector<Size>::operator [] (unsigned int index) const {
+    if (index < 0 || index >= Size) {
+        throw std::runtime_error("Error: Wektor jest poza zasiegiem!");
+    }
     return size[index];
 }
 
@@ -160,7 +176,8 @@ const double &Vector::operator [] (int index) const {
  |  Zwraca:                                                                   |
  |      Wartosc wektora w danym miejscu tablicy.                              |
  */
-double &Vector::operator[](int index) {
+template <unsigned int Size>
+double &Vector<Size>::operator[](unsigned int index) {
     return const_cast<double &>(const_cast<const Vector *>(this)->operator[](index));
 }
 
@@ -171,9 +188,10 @@ double &Vector::operator[](int index) {
  |      out - strumien wejsciowy,                                             |
  |      tmp - wektor.                                                         |
  */
-std::ostream &operator << (std::ostream &out, Vector const &tmp) {
-    for (int i = 0; i < SIZE; ++i) {
-        out << "[ " << tmp[i] << " ]\n";
+template <unsigned int Size>
+std::ostream &operator << (std::ostream &out, Vector<Size> const &tmp) {
+    for (unsigned int i = 0; i < Size; ++i) {
+        out << std::fixed << std::setprecision(10)  << tmp[i] << " ";
     }
     return out;
 }
@@ -185,10 +203,15 @@ std::ostream &operator << (std::ostream &out, Vector const &tmp) {
  |      in - strumien wyjsciowy,                                              |
  |      tmp - wektor.                                                         |
  */
-std::istream &operator >> (std::istream &in, Vector &tmp) {
-    for (int i = 0; i < SIZE; ++i) {
+template <unsigned int Size>
+std::istream &operator >> (std::istream &in, Vector<Size> &tmp) {
+    for (unsigned int i = 0; i < Size; ++i) {
         in >> tmp[i];
     }
     std::cout << std::endl;
+    if(in.fail())
+        throw std::runtime_error("Niepoprawny typ zmiennych w wektorze");
     return in;
 }
+
+

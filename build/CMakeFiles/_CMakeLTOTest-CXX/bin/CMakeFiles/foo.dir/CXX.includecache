@@ -1,0 +1,10 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/_CMakeLTOTest-CXX/src/foo.cpp
+
