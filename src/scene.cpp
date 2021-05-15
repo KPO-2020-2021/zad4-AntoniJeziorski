@@ -25,10 +25,15 @@ Cuboid Scene::GetCuboid() {
     return cube;
 }
 
-Matrix3D Scene::GetMatrix() {
-    return Rotation;
-}
-
 void Scene::PrintRotation() {
     std::cout << Rotation << std::endl;
+}
+
+Matrix3D Scene::GetOneRotationMatrix() {
+    return OneRotation;
+}
+
+void Scene::OneRotationMatrix(const Matrix3D matrix) {
+    Matrix3D tmp = matrix;
+    OneRotation = tmp * OneRotation;
 }

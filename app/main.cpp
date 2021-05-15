@@ -27,7 +27,6 @@ int main() {
     double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
     Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
     Cuboid Cub(x, y, z, t,a,b,c,d);   // Prostokat
-    Matrix3D tmp;
     PzG::LaczeDoGNUPlota  Lacze;    // Ta zmienna jest potrzebna do wizualizacji
                                     // rysunku Prostokata
     char option = '0', axis; // Zmienne do oslugi menu
@@ -51,9 +50,10 @@ int main() {
     //
     Lacze.ZmienTrybRys(PzG::TR_3D);
 
-    Lacze.UstawZakresY(-300,300);
-    Lacze.UstawZakresX(-300,300);
-    Lacze.UstawZakresZ(-300,300);
+    Lacze.UstawZakresY(-200,200);
+    Lacze.UstawZakresX(-200,200);
+    Lacze.UstawZakresZ(-200,200);
+
     try {
         scene.GetCuboid().Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
         scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
@@ -87,26 +87,23 @@ int main() {
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 'o':
-                    std::cout << "Podaj osie oraz katy" << std::endl;
+                    std::cout << "Podaj osie oraz katy i zakoncz znakiem \".\"" << std::endl;
                     axis = '0';
-                    tmp.Clear();
+                    scene.GetOneRotationMatrix().Clear();
                     while(axis != '.') {
                         std::cin >> axis;
                         switch(axis) {
                             case 'x':
                                 std::cin >> angle;
-                                tmp = RotationMatrix_X(angle) * tmp;
-                                scene.RotationMatrix(RotationMatrix_X(angle));
+                                scene.OneRotationMatrix(RotationMatrix_X(angle));
                                 break;
                             case 'y':
                                 std::cin >> angle;
-                                tmp = RotationMatrix_Y(angle) * tmp;
-                                scene.RotationMatrix(RotationMatrix_Y(angle));
+                                scene.OneRotationMatrix(RotationMatrix_Y(angle));
                                 break;
                             case 'z':
                                 std::cin >> angle;
-                                tmp = RotationMatrix_Z(angle) * tmp;
-                                scene.RotationMatrix(RotationMatrix_Z(angle));
+                                scene.OneRotationMatrix(RotationMatrix_Z(angle));
                                 break;
                             default:
                                 if(axis != '.')
@@ -116,17 +113,16 @@ int main() {
                     }
                     std::cout <<"Podaj ilosc obrotow" << std::endl;
                     std::cin >> amount;
-                    for(int i=0; i<amount-1; ++i) {
-                        tmp = tmp * tmp;
-                        scene.RotationMatrix(scene.GetMatrix());
-                    }
+                    for(int i=0; i<amount; ++i) 
+                        scene.RotationMatrix(scene.GetOneRotationMatrix());
                     scene.Move();
                     scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
                     scene.GetCuboid().Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 't':
-                    scene.RotationMatrix(tmp);
+                    for(int i=0; i<amount; ++i)
+                        scene.RotationMatrix(scene.GetOneRotationMatrix());
                     scene.Move();
                     scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
                     scene.GetCuboid().Edges();

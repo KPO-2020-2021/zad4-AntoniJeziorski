@@ -12,6 +12,8 @@ class Scene {
 
     Matrix3D Rotation;
 
+    Matrix3D OneRotation;
+
     Vector3D Translation;
 
     public:
@@ -25,8 +27,10 @@ class Scene {
         void Move();
 
         Cuboid GetCuboid();
-        
-        Matrix3D GetMatrix();
 
         void PrintRotation();
+
+        Matrix3D GetOneRotationMatrix();
+
+        void OneRotationMatrix(const Matrix3D);
 };

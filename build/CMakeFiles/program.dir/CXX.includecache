@@ -34,6 +34,18 @@ cmath
 matrix.hh
 ../inc/matrix.hh
 
+../inc/scene.hh
+size.hh
+../inc/size.hh
+cuboid.hh
+../inc/cuboid.hh
+iostream
+-
+cstdlib
+-
+cmath
+-
+
 ../inc/size.hh
 
 ../inc/vector.hh
@@ -48,7 +60,7 @@ iomanip
 vector.hh
 ../inc/vector.hh
 
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/cuboid.cpp
-cuboid.hh
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/cuboid.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.cpp
+scene.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.hh
 
