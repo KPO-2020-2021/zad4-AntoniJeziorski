@@ -24,14 +24,13 @@
 
 
 int main() {
-    double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, V[3] = {-2,-3,-3}; //angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
-    Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v(V); // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
+    double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
+    Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
     Cuboid Cub(x, y, z, t,a,b,c,d);   // Prostokat
-    
+    Matrix3D tmp;
     PzG::LaczeDoGNUPlota  Lacze;    // Ta zmienna jest potrzebna do wizualizacji
                                     // rysunku Prostokata
-    //char option = '0', animation = '0'; // Zmienne do oslugi menu
-    std::cout<<"dfsdfsdfsdsf";
+    char option = '0', axis; // Zmienne do oslugi menu
     Scene scene(Cub); // Utworzenie sceny
 //-------------------------------------------------------
     //  Wspolrzedne wierzcholkow beda zapisywane w pliku "Prostokat.dat"
@@ -51,25 +50,24 @@ int main() {
     //  jako wspolrzedne punktow podajemy tylko x,y.
     //
     Lacze.ZmienTrybRys(PzG::TR_3D);
+
     Lacze.UstawZakresY(-300,300);
     Lacze.UstawZakresX(-300,300);
     Lacze.UstawZakresZ(-300,300);
-    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat"); 
-    Lacze.Rysuj();
-    std::cin.ignore(10000,'\n');
-
-
-    /* try {
-        Rec.Sides(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
+    try {
+        scene.GetCuboid().Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
+        scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
         Lacze.Rysuj(); // Wyswietlenie prostokata
-        Rec.ZapisWspolrzednychDoPliku("../datasets/prostokat.dat");
+        
         while(option != 'k') { // Dopoki nie zostanie podane k
-            if(option == '0') // 
+            if(option == '0') //
             {
-                std::cout << "o - obrot prostokata o zadany kat" << std::endl;
-                std::cout << "p - przesuniecie prostokata o zadany wektor" << std::endl;
+                std::cout << "o - obrot prostopadloscianu o zadana sekwencje katow" << std::endl;
+                std::cout << "t - powtorzenie poprzedniego obrotu" << std::endl;
+                std::cout << "r - wyswietlenie macierzy rotacji" << std::endl;
+                std::cout << "p - przesuniecie prostopadloscianu o zadany wektor" << std::endl;
                 std::cout << "w - wyswietlenie wspolrzednych wierzcholkow" << std::endl;
-                std::cout << "a - wyswietlanie animacj" << std::endl;
+                std::cout << "s - sprawdzenie dlugosci przeciwleglych bokow";
                 std::cout << "m - wyswietl menu" << std::endl;
                 std::cout << "k - koniec dzialania programu" << std:: endl;
             }
@@ -81,57 +79,66 @@ int main() {
                 case 'p':
                     std::cout << "Podaj wspolrzedne wektora" << std::endl;
                     std::cin >> v;
-                    Rec.Translation(v); // Wykonaj translacje
-                    Rec.Sides(); // i sprawdz dlugosci bokow
-                    Rec.ZapisWspolrzednychDoPliku("../datasets/prostokat.dat");
+                    scene.TranslationVector(v); // Ustaw wektor translacji
+                    scene.Move(); // Wykonaj ruch
+                    //scene.GetCuboid().Edges(); // Sprawdz czy to prostopadloscian
+                    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+                    scene.GetCuboid().Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 'o':
-                    
-                    std::cout << "Podaj kat w stopniach oraz ilosc obrotow" << std::endl;
-                    std::cin >> angle >> amount;
-                    Rec.Rotation(angle, amount); // Wykonaj rotacje
-                    Rec.Sides(); // i sprawdz dlugosci bokow
-                    Rec.ZapisWspolrzednychDoPliku("../datasets/prostokat.dat"); 
-                    Lacze.Rysuj(); // Wyswietl wynik rotacji
+                    std::cout << "Podaj osie oraz katy" << std::endl;
+                    axis = '0';
+                    tmp.Clear();
+                    while(axis != '.') {
+                        std::cin >> axis;
+                        switch(axis) {
+                            case 'x':
+                                std::cin >> angle;
+                                tmp = RotationMatrix_X(angle) * tmp;
+                                scene.RotationMatrix(RotationMatrix_X(angle));
+                                break;
+                            case 'y':
+                                std::cin >> angle;
+                                tmp = RotationMatrix_Y(angle) * tmp;
+                                scene.RotationMatrix(RotationMatrix_Y(angle));
+                                break;
+                            case 'z':
+                                std::cin >> angle;
+                                tmp = RotationMatrix_Z(angle) * tmp;
+                                scene.RotationMatrix(RotationMatrix_Z(angle));
+                                break;
+                            default:
+                                if(axis != '.')
+                                    std::cerr << "NIE MA TAKIEJ OSI\n Mozliwe opcje to x y z" << std::endl;
+                                break;
+                        }
+                    }
+                    std::cout <<"Podaj ilosc obrotow" << std::endl;
+                    std::cin >> amount;
+                    for(int i=0; i<amount-1; ++i) {
+                        tmp = tmp * tmp;
+                        scene.RotationMatrix(scene.GetMatrix());
+                    }
+                    scene.Move();
+                    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+                    scene.GetCuboid().Edges();
+                    Lacze.Rysuj(); // Wyswietl wynik translacji
+                    break;
+                case 't':
+                    scene.RotationMatrix(tmp);
+                    scene.Move();
+                    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+                    scene.GetCuboid().Edges();
+                    Lacze.Rysuj();
                     break;
                 case 'w':
-                    std::cout << Rec; break; // Wyswietl wspolrzedne wierzcholkow prostokata
+                    std::cout << scene.GetCuboid(); break; // Wyswietl wspolrzedne wierzcholkow prostokata
                 case 'm':
                     option = '0';
-                    break; 
-                case 'a':
-                    std::cout << "Wybierz animacje :\n1. Animacja obrotu\n2. Animacja translacji" << std::endl;
-                    std::cin >> animation;
-                    switch(animation) {
-                        case '1':
-                            std::cout << "Podaj kat w stopniach oraz ilosc obrotow" << std::endl;
-                            std::cin >> angle >> amount;
-                            for(int j=0; j < amount; j++) { // Petla do ilosci obrotow
-                                for(int i=0; i < FLOPS; i++) { // Petla sluzaca do wyswietlania klatek animacji
-                                    Rec.Rotation(angle / FLOPS, 1);  // Rotacja prostokata o kat podzielony przez ilosc klatek
-                                    Rec.ZapisWspolrzednychDoPliku("../datasets/prostokat.dat"); 
-                                    usleep(5000);
-                                    Lacze.Rysuj();   // Wyswietlanie w petli kolejnych klatek
-                                    usleep(5000);
-                                }    
-                            }
-                            break;
-                        case '2':
-                            std::cout << "Podaj wspolrzedne wektora" << std::endl;
-                            std::cin >> v;
-                            for(int i=0; i < FLOPS; i++) { // Petla sluzaca do wyswietlania klatek animacji
-                                    Rec.Translation(v/FLOPS); // traslacja prostokata o wektor podzielony przez ilosc klatek
-                                    Rec.ZapisWspolrzednychDoPliku("../datasets/prostokat.dat"); 
-                                    usleep(5000);
-                                    Lacze.Rysuj(); // Wyswietlanie w petli kolejnych klatek
-                                    usleep(5000);
-                            }
-                            break;
-                        default:
-                            option = '0';
-                            std::cerr << "!!! NIE MA TAKIEJ ANIMACJI !!!" << std::endl; break;
-                    }
+                    break;
+                case 'r':
+                    scene.PrintRotation();
                     break;
                 default:
                     option = '0';
@@ -143,7 +150,7 @@ int main() {
         std::cerr << "Blad" << e.what() << "\n";
         exit(1);
 
-    } */
+    }
     return 0;
 }
 

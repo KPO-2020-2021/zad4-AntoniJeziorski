@@ -17,6 +17,12 @@ const Vector3D &Cuboid::operator [] (int index) const {
     return Corners[index];
 }
 
+const Vector3D &Cuboid::operator () (int index) const {
+    if (index < 0 || index >= CUBE) {
+        throw std::runtime_error("Error:  Blad ilosci wierzcholkow!");
+    }
+    return DefaultCorners[index];
+}
 /*!
  * Przeciazenie operator indeksujacego dla zapisu
  * Argumenty:
@@ -105,7 +111,7 @@ Cuboid Cuboid::Rotation(const double angle, const int amount) {
     Rotation = RotationMatrix_Z(angle);
     for(int j=0; j < amount; j++){
         for(int i=0; i<CUBE; i++) {
-            this->Corners[i] = Rotation * DefaultCorners[i];
+            Corners[i] = Rotation * DefaultCorners[i];
         }
     }
     return *this;
@@ -120,60 +126,80 @@ Cuboid Cuboid::Rotation(const double angle, const int amount) {
  */
 
 void Cuboid::Edges() const {
-    double a, b, c, d; // dlugosci bokow
-    a = sqrt(pow(this->Corners[0][0] - this->Corners[1][0],2)+pow(this->Corners[0][1]-this->Corners[1][1],2));
-    b = sqrt(pow(this->Corners[2][0] - this->Corners[3][0],2)+pow(this->Corners[2][1]-this->Corners[3][1],2));
-    c = sqrt(pow(this->Corners[0][0] - this->Corners[3][0],2)+pow(this->Corners[0][1]-this->Corners[3][1],2));
-    d = sqrt(pow(this->Corners[1][0] - this->Corners[2][0],2)+pow(this->Corners[1][1]-this->Corners[2][1],2));
-    
-    if(a >= b-MAX_DIFF && a<=b+MAX_DIFF) {
-        if(a > c) {
-            std::cout << ":)\tDluzsze przeciwlegle boki sa sobie rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << a << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << b << std::endl;
+    double a, b, c, d, e, f, g, h, i, j, k, l; // dlugosci bokow
+    int counterX = 0, counterY = 0, counterZ = 0;
+    a = sqrt(pow(Corners[1][0] - Corners[3][0],2)+pow(Corners[1][1]-Corners[3][1],2)+pow(Corners[1][2] - Corners[3][2],2));
+    b = sqrt(pow(Corners[3][0] - Corners[2][0],2)+pow(Corners[3][1]-Corners[2][1],2)+pow(Corners[3][2] - Corners[2][2],2));
+    c = sqrt(pow(Corners[2][0] - Corners[0][0],2)+pow(Corners[2][1]-Corners[0][1],2)+pow(Corners[2][2] - Corners[0][2],2));
+    d = sqrt(pow(Corners[0][0] - Corners[1][0],2)+pow(Corners[0][1]-Corners[1][1],2)+pow(Corners[0][2] - Corners[1][2],2));
+    e = sqrt(pow(Corners[1][0] - Corners[7][0],2)+pow(Corners[1][1]-Corners[7][1],2)+pow(Corners[1][2] - Corners[7][2],2));
+    f = sqrt(pow(Corners[7][0] - Corners[6][0],2)+pow(Corners[7][1]-Corners[6][1],2)+pow(Corners[7][2] - Corners[6][2],2));
+    g = sqrt(pow(Corners[6][0] - Corners[4][0],2)+pow(Corners[6][1]-Corners[4][1],2)+pow(Corners[6][2] - Corners[4][2],2));
+    h = sqrt(pow(Corners[4][0] - Corners[5][0],2)+pow(Corners[4][1]-Corners[5][1],2)+pow(Corners[4][2] - Corners[5][2],2));
+    i = sqrt(pow(Corners[5][0] - Corners[7][0],2)+pow(Corners[5][1]-Corners[7][1],2)+pow(Corners[5][2] - Corners[7][2],2));
+    j = sqrt(pow(Corners[0][0] - Corners[6][0],2)+pow(Corners[0][1]-Corners[6][1],2)+pow(Corners[0][2] - Corners[6][2],2));
+    k = sqrt(pow(Corners[3][0] - Corners[5][0],2)+pow(Corners[3][1]-Corners[5][1],2)+pow(Corners[3][2] - Corners[5][2],2));
+    l = sqrt(pow(Corners[2][0] - Corners[4][0],2)+pow(Corners[2][1]-Corners[4][1],2)+pow(Corners[2][2] - Corners[4][2],2));
+
+    double X[4] = {a,c,g,i}, Y[4] = {d,b,f,h}, Z[4] = {e,j,k,l};
+
+    for(int i=0; i<4; ++i) {
+        for(int j=i+1; j<4; ++j) {
+            if(X[i] >= X[j]-MAX_DIFF && X[i]<=X[j]+MAX_DIFF)
+                counterX += 1;
         }
-        else {
-            std::cout << ":)\tKrotsze przeciwlegle boki sa sobie rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << a << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << b << std::endl;
+    }
+
+    for(int i=0; i<4; ++i) {
+        for(int j=i+1; j<4; ++j) {
+            if(Y[i] >= Y[j]-MAX_DIFF && Y[i]<=Y[j]+MAX_DIFF)
+                counterY += 1;
         }
+    }
+
+    for(int i=0; i<4; ++i) {
+        for(int j=i+1; j<4; ++j) {
+            if(Z[i] >= Z[j]-MAX_DIFF && Z[i]<=Z[j]+MAX_DIFF)
+                counterZ += 1;
+        }
+    }
+
+    if(counterX == 6) {
+        if(a > d)
+            std::cout << ":)\tDluzsze boki sa rowne" << std::endl;
+        else
+            std::cout << ":)\tKrotsze boki sa rowne" << std::endl;
     }
     else {
-        if(a > c) {
-            std::cout << ":O\tDluzsze przeciwlegle boki nie sa rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << a << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << b << std::endl;
-        }
-        else {
+        if(a > d)
+            std::cout << ":O\tDluzsze boki nie sa rowne" << std::endl;
+        else
             std::cout << ":O\tKrotsze przeciwlegle boki nie sa rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << a << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << b << std::endl;
-        }
     }
-    if(c >= d-MAX_DIFF && c<=d+MAX_DIFF) {
-        if(a < c) {
-            std::cout << ":)\tDluzsze przeciwlegle boki sa sobie rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << c << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << d << std::endl;
-        }
-        else {
-            std::cout << ":)\tKrotsze przeciwlegle boki sa sobie rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << c << std::endl;
-            std::cout << std::fixed << std::setprecision(10) <<d << std::endl;
-        }
+    std::cout << std::fixed << std::setprecision(10) << X[0] << " " << X[1] << " " << X[2] << " " << X[3] << std::endl;
+
+    if(counterY == 6) {
+        if(a > d)
+            std::cout << ":)\tKrotsze boki sa rowne" << std::endl;
+        else
+            std::cout << ":)\tDluzsze boki sa rowne" << std::endl;
     }
     else {
-        if(a < c) {
-            std::cout << ":O\tDluzsze przeciwlegle boki nie sa rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << c << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << d << std::endl;
-        }
-        else {
+        if(a > d)
             std::cout << ":O\tKrotsze przeciwlegle boki nie sa rowne" << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << c << std::endl;
-            std::cout << std::fixed << std::setprecision(10) << d << std::endl;
-        }
+        else
+            std::cout << ":O\tDluzsze boki nie sa rowne" << std::endl;
     }
+    std::cout << Y[0] << " " << Y[1] << " " << Y[2] << " " << Y[3] << std::endl;
+
+    if(counterZ == 6) {
+        std::cout << ":)\tPoprzeczne boki sa rowne" << std::endl;
+    }
+    else {
+        std::cout << ":O\tPoprzeczne boki nie sa rowne" << std::endl;
+    }
+    std::cout << Z[0] << " " << Z[1] << " " << Z[2] << " " << Z[3] << std::endl;
+
 }
 
 

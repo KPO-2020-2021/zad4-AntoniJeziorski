@@ -29,6 +29,8 @@ class Cuboid {
 
     const Vector3D &operator [] (int index) const; // Operator indeksujacy dla odczytu
 
+    const Vector3D &operator () (int index) const; // Operator indeksujacy dla odczytu
+
     Vector3D &operator [] (int index); // Operator indeksujacy dla zapisu
 };
 

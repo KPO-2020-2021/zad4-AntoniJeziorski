@@ -15,19 +15,20 @@ void Scene::TranslationVector(const Vector3D vector) {
     Translation = Translation + tmp;
 }
 
-
-void Scene::FillRotation(const Matrix3D matrix) {
-    Matrix3D tmp = matrix;
-    Rotation = tmp * Rotation;
-}
-
 void Scene::Move() {
     for(int i=0; i<CUBE; ++i) {
-        cube[i] = Rotation * cube[i];
-        cube[i] = cube[i] + Translation;
+        cube[i] = Rotation * cube(i) + Translation;
     }
 }
 
 Cuboid Scene::GetCuboid() {
     return cube;
+}
+
+Matrix3D Scene::GetMatrix() {
+    return Rotation;
+}
+
+void Scene::PrintRotation() {
+    std::cout << Rotation << std::endl;
 }

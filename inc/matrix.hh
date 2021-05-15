@@ -27,6 +27,8 @@ public:
     const double &operator () (unsigned int row, unsigned int column) const; // operator funkcyjny dla zapisu
 
     double Determinant() const;
+
+    Matrix Clear();
 };
 
 template <unsigned int Size>
@@ -49,10 +51,10 @@ Matrix<Size>::Matrix() {
     for (unsigned int i = 0; i < Size; ++i) {
         for (unsigned int j = 0; j < Size; ++j) {
             if(i==j){
-                value[i][j] = 0;
+                value[i][j] = 1;
             }
             else{
-                value[i][j] = 1;
+                value[i][j] = 0;
             }
         }
     }
@@ -252,4 +254,19 @@ Matrix<Size> Matrix<Size>::operator * (const Matrix<Size> tmp) {
         }
     }
     return result;
+}
+
+template <unsigned int Size>
+Matrix<Size> Matrix<Size>::Clear() {
+    for (unsigned int i = 0; i < Size; ++i) {
+        for (unsigned int j = 0; j < Size; ++j) {
+            if(i==j){
+                value[i][j] = 1;
+            }
+            else{
+                value[i][j] = 0;
+            }
+        }
+    }
+    return *this;
 }
