@@ -39,6 +39,8 @@ size.hh
 ../inc/size.hh
 cuboid.hh
 ../inc/cuboid.hh
+vector
+-
 iostream
 -
 cstdlib

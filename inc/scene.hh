@@ -2,35 +2,38 @@
 
 #include "size.hh"
 #include "cuboid.hh"
+#include <vector>
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
 
 class Scene {
 
-    Cuboid cube;
+    std::vector <Cuboid> cube;
 
-    Matrix3D Rotation;
+    std::vector <Matrix3D> Rotation;
 
-    Matrix3D OneRotation;
+    std::vector <Matrix3D> OneRotation;
 
-    Vector3D Translation;
+    std::vector <Vector3D> Translation;
 
     public:
 
         Scene(Cuboid);
 
-        void RotationMatrix(const Matrix3D);
+        void RotationMatrix(const Matrix3D, const int CubeNumber);
 
-        void TranslationVector(const Vector3D);
+        void TranslationVector(const Vector3D, const int CubeNumber);
 
-        void Move();
+        void Move(int CubeNumber);
 
-        Cuboid GetCuboid();
+        Cuboid GetCuboid(int CubeNumber);
 
-        void PrintRotation();
+        void PrintRotation(int CubeNumber);
 
-        Matrix3D GetOneRotationMatrix();
+        Matrix3D GetOneRotationMatrix(int CubeNumber);
 
-        void OneRotationMatrix(const Matrix3D);
+        void OneRotationMatrix(const Matrix3D, int CubeNumber);
+
+        void NewCuboid();
 };

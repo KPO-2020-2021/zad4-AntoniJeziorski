@@ -83,7 +83,7 @@ Vector<Size>::Vector(double tmp[Size]) {
 template <unsigned int Size>
 Vector<Size> Vector<Size>::operator + (const Vector<Size> &v) {
     Vector<Size> result;
-    for (unsigned int i = 0; i < SIZE; ++i) {
+    for (unsigned int i = 0; i < Size; ++i) {
         result[i] = size[i] += v[i];
     }
     return result;

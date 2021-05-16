@@ -23,6 +23,7 @@ const Vector3D &Cuboid::operator () (int index) const {
     }
     return DefaultCorners[index];
 }
+
 /*!
  * Przeciazenie operator indeksujacego dla zapisu
  * Argumenty:
@@ -252,6 +253,8 @@ Cuboid::Cuboid() {
 
 bool Cuboid::ZapisWspolrzednychDoPliku( const char *sNazwaPliku) {
 
+    Vector3D X, Y, tmp1 = Corners[0], tmp2 = Corners[7], tmp3 = Corners[2], tmp4 = Corners[5];
+
     std::ofstream  StrmPlikowy;
 
     StrmPlikowy.open(sNazwaPliku);
@@ -260,10 +263,14 @@ bool Cuboid::ZapisWspolrzednychDoPliku( const char *sNazwaPliku) {
         return false;
     }
 
-    StrmPlikowy << *this;
-    StrmPlikowy << Corners[0];
-    StrmPlikowy << std::endl;
-    StrmPlikowy << Corners[1];
+    X = (tmp1 + tmp2) / 2;
+    Y = (tmp3 + tmp4) / 2;
+
+    StrmPlikowy << X << std::endl << Corners[7] << std::endl << Corners[5] << std::endl << Y << std::endl << '#' << std::endl << std::endl;
+    StrmPlikowy << X << std::endl << Corners[1] << std::endl << Corners[3] << std::endl << Y << std::endl << '#' << std::endl << std::endl;
+    StrmPlikowy << X << std::endl << Corners[0] << std::endl << Corners[2] << std::endl << Y << std::endl << '#' << std::endl << std::endl;
+    StrmPlikowy << X << std::endl << Corners[6] << std::endl << Corners[4] << std::endl << Y << std::endl << '#' << std::endl << std::endl;
+    StrmPlikowy << X << std::endl << Corners[7] << std::endl << Corners[5] << std::endl << Y << std::endl << '#' << std::endl;
 
     StrmPlikowy.close();
     return !StrmPlikowy.fail();

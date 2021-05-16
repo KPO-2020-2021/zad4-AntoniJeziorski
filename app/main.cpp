@@ -22,7 +22,6 @@
 
 
 
-
 int main() {
     double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
     Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
@@ -31,6 +30,8 @@ int main() {
                                     // rysunku Prostokata
     char option = '0', axis; // Zmienne do oslugi menu
     Scene scene(Cub); // Utworzenie sceny
+
+   
 //-------------------------------------------------------
     //  Wspolrzedne wierzcholkow beda zapisywane w pliku "Prostokat.dat"
     //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
@@ -55,8 +56,8 @@ int main() {
     Lacze.UstawZakresZ(-200,200);
 
     try {
-        scene.GetCuboid().Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
-        scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+        scene.GetCuboid(0).Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
+        scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
         Lacze.Rysuj(); // Wyswietlenie prostokata
         
         while(option != 'k') { // Dopoki nie zostanie podane k
@@ -67,7 +68,8 @@ int main() {
                 std::cout << "r - wyswietlenie macierzy rotacji" << std::endl;
                 std::cout << "p - przesuniecie prostopadloscianu o zadany wektor" << std::endl;
                 std::cout << "w - wyswietlenie wspolrzednych wierzcholkow" << std::endl;
-                std::cout << "s - sprawdzenie dlugosci przeciwleglych bokow";
+                std::cout << "s - sprawdzenie dlugosci przeciwleglych bokow" << std::endl;
+                std::cout << "n - dodanie nowego prostopadloscianu" << std::endl;
                 std::cout << "m - wyswietl menu" << std::endl;
                 std::cout << "k - koniec dzialania programu" << std:: endl;
             }
@@ -79,62 +81,84 @@ int main() {
                 case 'p':
                     std::cout << "Podaj wspolrzedne wektora" << std::endl;
                     std::cin >> v;
-                    scene.TranslationVector(v); // Ustaw wektor translacji
-                    scene.Move(); // Wykonaj ruch
-                    //scene.GetCuboid().Edges(); // Sprawdz czy to prostopadloscian
-                    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
-                    scene.GetCuboid().Edges();
+
+                    scene.TranslationVector(v, 0); // Ustaw wektor translacji
+                    scene.Move(0); // Wykonaj ruch
+                    scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+                    scene.GetCuboid(0).Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 'o':
                     std::cout << "Podaj osie oraz katy i zakoncz znakiem \".\"" << std::endl;
                     axis = '0';
-                    scene.GetOneRotationMatrix().Clear();
+                    scene.GetOneRotationMatrix(0).Clear();
                     while(axis != '.') {
                         std::cin >> axis;
                         switch(axis) {
                             case 'x':
                                 std::cin >> angle;
-                                scene.OneRotationMatrix(RotationMatrix_X(angle));
+                                if(std::cin.fail()) {
+                                    std::cin.clear();
+                                    std::cerr << "BLEDNA WARTOSC KATA\nPodaj jeszcze raz" << std::endl;
+                                    std::cin.ignore(100000,'\n');
+                                }
+                                else
+                                    scene.OneRotationMatrix(RotationMatrix_X(angle),0);
                                 break;
                             case 'y':
                                 std::cin >> angle;
-                                scene.OneRotationMatrix(RotationMatrix_Y(angle));
+                                if(std::cin.fail()) {
+                                    std::cin.clear();
+                                    std::cerr << "BLEDNA WARTOSC KATA\nPodaj jeszcze raz" << std::endl;
+                                    std::cin.ignore(100000,'\n');
+                                }
+                                else
+                                    scene.OneRotationMatrix(RotationMatrix_Y(angle),0);
                                 break;
                             case 'z':
                                 std::cin >> angle;
-                                scene.OneRotationMatrix(RotationMatrix_Z(angle));
+                                if(std::cin.fail()) {
+                                    std::cin.clear();
+                                    std::cerr << "BLEDNA WARTOSC KATA\nPodaj jeszcze raz" << std::endl;
+                                    std::cin.ignore(100000,'\n');
+                                }
+                                else
+                                    scene.OneRotationMatrix(RotationMatrix_Z(angle),0);
                                 break;
                             default:
-                                if(axis != '.')
-                                    std::cerr << "NIE MA TAKIEJ OSI\n Mozliwe opcje to x y z" << std::endl;
+                                if(axis != '.') {
+                                    std::cerr << "NIE MA TAKIEJ OSI\nMozliwe opcje to x y z" << std::endl;
+                                    std::cin.ignore(100000,'\n');
+                                }
                                 break;
                         }
                     }
                     std::cout <<"Podaj ilosc obrotow" << std::endl;
                     std::cin >> amount;
                     for(int i=0; i<amount; ++i) 
-                        scene.RotationMatrix(scene.GetOneRotationMatrix());
-                    scene.Move();
-                    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
-                    scene.GetCuboid().Edges();
+                        scene.RotationMatrix(scene.GetOneRotationMatrix(0),0);
+                    scene.Move(0);
+                    scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+                    scene.GetCuboid(0).Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 't':
                     for(int i=0; i<amount; ++i)
-                        scene.RotationMatrix(scene.GetOneRotationMatrix());
-                    scene.Move();
-                    scene.GetCuboid().ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
-                    scene.GetCuboid().Edges();
+                        scene.RotationMatrix(scene.GetOneRotationMatrix(0),0);
+                    scene.Move(0);
+                    scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+                    scene.GetCuboid(0).Edges();
                     Lacze.Rysuj();
                     break;
                 case 'w':
-                    std::cout << scene.GetCuboid(); break; // Wyswietl wspolrzedne wierzcholkow prostokata
+                    std::cout << scene.GetCuboid(0); break; // Wyswietl wspolrzedne wierzcholkow prostokata
+                case 'n':
+                    
                 case 'm':
                     option = '0';
                     break;
                 case 'r':
-                    scene.PrintRotation();
+                    scene.PrintRotation(0);
                     break;
                 default:
                     option = '0';
