@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include <string>
+#include <filesystem>
 #include <unistd.h>
 
 #include "exampleConfig.h"
@@ -21,6 +22,11 @@
 #include "../inc/lacze_do_gnuplota.hh"
 
 
+void deleteCuboids(const std::string& dir_path)
+{
+    for (const auto& entry : std::filesystem::directory_iterator(dir_path)) 
+        std::filesystem::remove_all(entry.path());
+}
 
 int main() {
     double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
@@ -30,6 +36,8 @@ int main() {
                                     // rysunku Prostokata
     char option = '0', axis; // Zmienne do oslugi menu
     Scene scene(Cub); // Utworzenie sceny
+    int cubeNumber, cubeAmount = 1;
+    std::string filename = "../datasets/prostopadloscian";
 
    
 //-------------------------------------------------------
@@ -38,7 +46,7 @@ int main() {
     //  na dwa sposoby:
     //   1. Rysowane jako linia ciagl o grubosci 2 piksele
     //
-    Lacze.DodajNazwePliku("../datasets/prostopadloscian.dat",PzG::RR_Ciagly,2);
+    Lacze.DodajNazwePliku("../datasets/prostopadloscian1.dat",PzG::RR_Ciagly,2);
     //
     //   2. Rysowane jako zbior punktow reRecezentowanych Reczez kwadraty,
     //      których połowa długości boku wynosi 2.
@@ -57,7 +65,7 @@ int main() {
 
     try {
         scene.GetCuboid(0).Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
-        scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
+        scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian1.dat");
         Lacze.Rysuj(); // Wyswietlenie prostokata
         
         while(option != 'k') { // Dopoki nie zostanie podane k
@@ -77,21 +85,27 @@ int main() {
             std::cin >> option;
             switch(option) {
                 case 'k':
+                    deleteCuboids("../datasets");
                     option = 'k'; break;
                 case 'p':
+                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                    std::cin >> cubeNumber;
                     std::cout << "Podaj wspolrzedne wektora" << std::endl;
                     std::cin >> v;
-
-                    scene.TranslationVector(v, 0); // Ustaw wektor translacji
-                    scene.Move(0); // Wykonaj ruch
-                    scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
-                    scene.GetCuboid(0).Edges();
+                    scene.TranslationVector(v, cubeNumber - 1); // Ustaw wektor translacji
+                    scene.Move(cubeNumber - 1); // Wykonaj ruch
+                    filename = filename + std::to_string(cubeNumber) + ".dat";
+                    scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
+                    filename = filename = "../datasets/prostopadloscian";
+                    scene.GetCuboid(cubeNumber - 1).Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 'o':
+                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                    std::cin >> cubeNumber;
                     std::cout << "Podaj osie oraz katy i zakoncz znakiem \".\"" << std::endl;
                     axis = '0';
-                    scene.GetOneRotationMatrix(0).Clear();
+                    scene.GetOneRotationMatrix(cubeNumber-1).Clear();
                     while(axis != '.') {
                         std::cin >> axis;
                         switch(axis) {
@@ -103,7 +117,7 @@ int main() {
                                     std::cin.ignore(100000,'\n');
                                 }
                                 else
-                                    scene.OneRotationMatrix(RotationMatrix_X(angle),0);
+                                    scene.OneRotationMatrix(RotationMatrix_X(angle),cubeNumber - 1);
                                 break;
                             case 'y':
                                 std::cin >> angle;
@@ -113,7 +127,7 @@ int main() {
                                     std::cin.ignore(100000,'\n');
                                 }
                                 else
-                                    scene.OneRotationMatrix(RotationMatrix_Y(angle),0);
+                                    scene.OneRotationMatrix(RotationMatrix_Y(angle),cubeNumber - 1);
                                 break;
                             case 'z':
                                 std::cin >> angle;
@@ -123,7 +137,7 @@ int main() {
                                     std::cin.ignore(100000,'\n');
                                 }
                                 else
-                                    scene.OneRotationMatrix(RotationMatrix_Z(angle),0);
+                                    scene.OneRotationMatrix(RotationMatrix_Z(angle),cubeNumber - 1);
                                 break;
                             default:
                                 if(axis != '.') {
@@ -136,29 +150,45 @@ int main() {
                     std::cout <<"Podaj ilosc obrotow" << std::endl;
                     std::cin >> amount;
                     for(int i=0; i<amount; ++i) 
-                        scene.RotationMatrix(scene.GetOneRotationMatrix(0),0);
-                    scene.Move(0);
-                    scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
-                    scene.GetCuboid(0).Edges();
+                        scene.RotationMatrix(scene.GetOneRotationMatrix(cubeNumber - 1),cubeNumber - 1);
+                    scene.Move(cubeNumber-1);
+                    filename = filename + std::to_string(cubeNumber) + ".dat";
+                    scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
+                    filename = filename = "../datasets/prostopadloscian";
+                    scene.GetCuboid(cubeNumber-1).Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
                     break;
                 case 't':
                     for(int i=0; i<amount; ++i)
-                        scene.RotationMatrix(scene.GetOneRotationMatrix(0),0);
-                    scene.Move(0);
-                    scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian.dat");
-                    scene.GetCuboid(0).Edges();
+                        scene.RotationMatrix(scene.GetOneRotationMatrix(cubeNumber - 1),cubeNumber - 1);
+                    scene.Move(cubeNumber - 1);
+                    filename = filename + std::to_string(cubeNumber) + ".dat";
+                    scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
+                    filename = filename = "../datasets/prostopadloscian";
+                    scene.GetCuboid(cubeNumber - 1).Edges();
                     Lacze.Rysuj();
                     break;
                 case 'w':
-                    std::cout << scene.GetCuboid(0); break; // Wyswietl wspolrzedne wierzcholkow prostokata
+                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                    std::cin >> cubeNumber;
+                    std::cout << scene.GetCuboid(cubeNumber - 1); break; // Wyswietl wspolrzedne wierzcholkow prostokata
                 case 'n':
-                    
+                    cubeAmount += 1;
+                    scene.NewCuboid();
+                    filename = filename + std::to_string(cubeAmount) + ".dat";
+                    Lacze.DodajNazwePliku(filename.c_str(),PzG::RR_Ciagly,2);
+                    scene.GetCuboid(cubeAmount - 1).Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
+                    scene.GetCuboid(cubeAmount - 1).ZapisWspolrzednychDoPliku(filename.c_str());
+                    Lacze.Rysuj(); // Wyswietlenie prostokata
+                    filename = filename = "../datasets/prostopadloscian";
+                    break;
                 case 'm':
                     option = '0';
                     break;
                 case 'r':
-                    scene.PrintRotation(0);
+                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                    std::cin >> cubeNumber;
+                    scene.PrintRotation(cubeNumber-1);
                     break;
                 default:
                     option = '0';
@@ -169,7 +199,6 @@ int main() {
     catch(std::runtime_error& e) {
         std::cerr << "Blad" << e.what() << "\n";
         exit(1);
-
     }
     return 0;
 }

@@ -52,18 +52,18 @@ void Scene::NewCuboid() {
     std::cout << "Podaj dlugosci bokow w osiach X Y Z" << std::endl;
     std::cin >> length_X >> length_Y >> length_Z;
 
-    corner2[0] = corner1[0] + length_X; corner2[1] = corner1[1]; corner2[2] = corner2[2];
+    corner2[0] = corner1[0] + length_X; corner2[1] = corner1[1]; corner2[2] = corner1[2];
     corner3[0] = corner1[0]; corner3[1] = corner1[1] + length_Y; corner3[2] = corner1[2];
-    corner4[0] = corner1[0]; corner4[1] = corner1[1]; corner4[2] = corner1[2] + length_Z;
-    corner5[0] = corner4[0] + length_X; corner5[1] = corner4[1]; corner5[2] = corner4[2];
-    corner6[0] = corner4[0]; corner6[1] = corner4[1] + length_Y; corner6[2] = corner4[2];
-    corner7[0] = corner5[0]; corner7[1] = corner6[1]; corner7[2] = corner4[2];
-    corner8[0] = corner2[0]; corner8[1] = corner3[1]; corner7[2] = corner1[2];
-
-    Cuboid newcube(corner3, corner1, corner8, corner2, corner7, corner5, corner6, corner4);
+    corner7[0] = corner1[0]; corner7[1] = corner1[1]; corner7[2] = corner1[2] + length_Z;
+    corner5[0] = corner7[0]; corner5[1] = corner7[1] + length_Y; corner5[2] = corner7[2];
+    corner8[0] = corner7[0] + length_X; corner8[1] = corner7[1]; corner8[2] = corner7[2];
+    corner6[0] = corner5[0] + length_X; corner6[1] = corner5[1]; corner6[2] = corner5[2];
+    corner4[0] = corner3[0] + length_X; corner4[1] = corner3[1]; corner4[2] = corner3[2];
+    
+    Cuboid newcube(corner1, corner2, corner3, corner4, corner5, corner6, corner7, corner8);
     cube.push_back(newcube);
+    std::cout << newcube;
     Translation.push_back(tmp1);
     Rotation.push_back(tmp2);
     OneRotation.push_back(tmp3);
-    
 }
