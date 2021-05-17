@@ -16,6 +16,12 @@ CMakeFiles/program.dir/src/example.cpp.o: ../tests/doctest/doctest.h
 CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o: ../inc/lacze_do_gnuplota.hh
 CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o: ../src/lacze_do_gnuplota.cpp
 
+CMakeFiles/program.dir/src/matrix2D.cpp.o: ../inc/matrix.hh
+CMakeFiles/program.dir/src/matrix2D.cpp.o: ../inc/matrix2D.hh
+CMakeFiles/program.dir/src/matrix2D.cpp.o: ../inc/size.hh
+CMakeFiles/program.dir/src/matrix2D.cpp.o: ../inc/vector.hh
+CMakeFiles/program.dir/src/matrix2D.cpp.o: ../src/matrix2D.cpp
+
 CMakeFiles/program.dir/src/matrix3D.cpp.o: ../inc/matrix.hh
 CMakeFiles/program.dir/src/matrix3D.cpp.o: ../inc/matrix3D.hh
 CMakeFiles/program.dir/src/matrix3D.cpp.o: ../inc/size.hh

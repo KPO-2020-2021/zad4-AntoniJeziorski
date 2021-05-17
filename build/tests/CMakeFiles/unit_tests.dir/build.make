@@ -94,7 +94,8 @@ unit_tests_EXTERNAL_OBJECTS = \
 "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o" \
 "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/program.dir/src/cuboid.cpp.o" \
 "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/program.dir/src/matrix3D.cpp.o" \
-"/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/program.dir/src/scene.cpp.o"
+"/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/program.dir/src/scene.cpp.o" \
+"/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/program.dir/src/matrix2D.cpp.o"
 
 unit_tests: tests/CMakeFiles/unit_tests.dir/main.cpp.o
 unit_tests: tests/CMakeFiles/unit_tests.dir/dummy.cpp.o
@@ -103,6 +104,7 @@ unit_tests: CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o
 unit_tests: CMakeFiles/program.dir/src/cuboid.cpp.o
 unit_tests: CMakeFiles/program.dir/src/matrix3D.cpp.o
 unit_tests: CMakeFiles/program.dir/src/scene.cpp.o
+unit_tests: CMakeFiles/program.dir/src/matrix2D.cpp.o
 unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
 unit_tests: tests/CMakeFiles/unit_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../unit_tests"

@@ -16,6 +16,12 @@ CMakeFiles/program.dir/src/example.cpp.o
 CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o
  ../inc/lacze_do_gnuplota.hh
  /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/lacze_do_gnuplota.cpp
+CMakeFiles/program.dir/src/matrix2D.cpp.o
+ ../inc/matrix.hh
+ ../inc/matrix2D.hh
+ ../inc/size.hh
+ ../inc/vector.hh
+ /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix2D.cpp
 CMakeFiles/program.dir/src/matrix3D.cpp.o
  ../inc/matrix.hh
  ../inc/matrix3D.hh

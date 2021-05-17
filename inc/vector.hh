@@ -208,9 +208,12 @@ std::istream &operator >> (std::istream &in, Vector<Size> &tmp) {
     for (unsigned int i = 0; i < Size; ++i) {
         in >> tmp[i];
     }
-    std::cout << std::endl;
-    if(in.fail())
-        throw std::runtime_error("Niepoprawny typ zmiennych w wektorze");
+    if(in.fail()) {
+        in.clear();
+        throw std::invalid_argument("NIEPOPRAWNA WARTOSC WEKTORA\n");
+        in.ignore(100000, '\n');
+    }
+    
     return in;
 }
 

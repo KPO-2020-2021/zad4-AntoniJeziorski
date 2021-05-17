@@ -128,7 +128,9 @@ Cuboid Cuboid::Rotation(const double angle, const int amount) {
 
 void Cuboid::Edges() const {
     double a, b, c, d, e, f, g, h, i, j, k, l; // dlugosci bokow
-    int counterX = 0, counterY = 0, counterZ = 0;
+
+    int counterX = 0, counterY = 0, counterZ = 0; // liczniki poprawnych porownan
+
     a = sqrt(pow(Corners[1][0] - Corners[3][0],2)+pow(Corners[1][1]-Corners[3][1],2)+pow(Corners[1][2] - Corners[3][2],2));
     b = sqrt(pow(Corners[3][0] - Corners[2][0],2)+pow(Corners[3][1]-Corners[2][1],2)+pow(Corners[3][2] - Corners[2][2],2));
     c = sqrt(pow(Corners[2][0] - Corners[0][0],2)+pow(Corners[2][1]-Corners[0][1],2)+pow(Corners[2][2] - Corners[0][2],2));

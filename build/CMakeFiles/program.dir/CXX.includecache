@@ -30,6 +30,10 @@ cstdlib
 cmath
 -
 
+../inc/matrix2D.hh
+matrix.hh
+../inc/matrix.hh
+
 ../inc/matrix3D.hh
 matrix.hh
 ../inc/matrix.hh
@@ -61,6 +65,18 @@ iomanip
 ../inc/vector3D.hh
 vector.hh
 ../inc/vector.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/cuboid.cpp
+cuboid.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/cuboid.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix2D.cpp
+matrix2D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix2D.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix3D.cpp
+matrix3D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix3D.hh
 
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.cpp
 scene.hh

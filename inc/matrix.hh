@@ -23,12 +23,14 @@ public:
     Matrix operator * (const Matrix tmp);           // Operator mnozenia macierzy
 
     double  &operator () (unsigned int row, unsigned int column);     // Operator funkcyjny dla odczytu
-    
+
     const double &operator () (unsigned int row, unsigned int column) const; // operator funkcyjny dla zapisu
 
     double Determinant() const;
 
     Matrix Clear();
+
+    bool operator == (const Matrix tmp);
 };
 
 template <unsigned int Size>
@@ -269,4 +271,15 @@ Matrix<Size> Matrix<Size>::Clear() {
         }
     }
     return *this;
+}
+
+template <unsigned int Size>
+bool Matrix<Size>::operator == (const Matrix<Size> tmp) {
+    for(unsigned int i = 0; i < Size; ++i) {
+        for(unsigned int j = 0; j < Size; ++j) {
+            if(!(value[i][j] >= tmp(i, j) - MAX_DIFF && value[i][j] <= tmp(i, j) + MAX_DIFF))
+                return false;
+        }
+    }
+    return true;
 }

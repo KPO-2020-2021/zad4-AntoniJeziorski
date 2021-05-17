@@ -122,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named doc
+
+# Build rule for target.
+doc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doc
+.PHONY : doc
+
+# fast build rule for target.
+doc/fast:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+.PHONY : doc/fast
+
+#=============================================================================
 # Target rules for targets named NightlyMemCheck
 
 # Build rule for target.
@@ -658,6 +671,33 @@ src/lacze_do_gnuplota.cpp.s:
 	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.s
 .PHONY : src/lacze_do_gnuplota.cpp.s
 
+src/matrix2D.o: src/matrix2D.cpp.o
+
+.PHONY : src/matrix2D.o
+
+# target to build an object file
+src/matrix2D.cpp.o:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix2D.cpp.o
+.PHONY : src/matrix2D.cpp.o
+
+src/matrix2D.i: src/matrix2D.cpp.i
+
+.PHONY : src/matrix2D.i
+
+# target to preprocess a source file
+src/matrix2D.cpp.i:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix2D.cpp.i
+.PHONY : src/matrix2D.cpp.i
+
+src/matrix2D.s: src/matrix2D.cpp.s
+
+.PHONY : src/matrix2D.s
+
+# target to generate assembly for a file
+src/matrix2D.cpp.s:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix2D.cpp.s
+.PHONY : src/matrix2D.cpp.s
+
 src/matrix3D.o: src/matrix3D.cpp.o
 
 .PHONY : src/matrix3D.o
@@ -720,6 +760,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... doc"
 	@echo "... edit_cache"
 	@echo "... NightlyMemCheck"
 	@echo "... main"
@@ -766,6 +807,9 @@ help:
 	@echo "... src/lacze_do_gnuplota.o"
 	@echo "... src/lacze_do_gnuplota.i"
 	@echo "... src/lacze_do_gnuplota.s"
+	@echo "... src/matrix2D.o"
+	@echo "... src/matrix2D.i"
+	@echo "... src/matrix2D.s"
 	@echo "... src/matrix3D.o"
 	@echo "... src/matrix3D.i"
 	@echo "... src/matrix3D.s"

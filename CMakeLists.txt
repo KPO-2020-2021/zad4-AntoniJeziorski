@@ -43,6 +43,7 @@ set(SOURCES          # All .cpp files in src/
     src/cuboid.cpp
     src/matrix3D.cpp
     src/scene.cpp
+    src/matrix2D.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
     

@@ -22,41 +22,40 @@
 #include "../inc/lacze_do_gnuplota.hh"
 
 
-void deleteCuboids(const std::string& dir_path)
-{
-    for (const auto& entry : std::filesystem::directory_iterator(dir_path)) 
+void deleteCuboids(const std::string& data) {
+    for (const auto& entry : std::filesystem::directory_iterator(data)) 
         std::filesystem::remove_all(entry.path());
 }
 
 int main() {
     double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
+
     Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
-    Cuboid Cub(x, y, z, t,a,b,c,d);   // Prostokat
-    PzG::LaczeDoGNUPlota  Lacze;    // Ta zmienna jest potrzebna do wizualizacji
-                                    // rysunku Prostokata
+
+    Cuboid Cub(x, y, z, t,a,b,c,d);   // Utworzenie prostopadloscianu
+
+    PzG::LaczeDoGNUPlota  Lacze;    // Ta zmienna jest potrzebna do wizualizacji rysunku Prostokata
+
     char option = '0', axis; // Zmienne do oslugi menu
+
     Scene scene(Cub); // Utworzenie sceny
-    int cubeNumber, cubeAmount = 1;
+
+    int cubeNumber, cubeAmount = 1; // zmienna do obslugi wielu prostopadloscianow oraz licznik prostopadloscianow
+
     std::string filename = "../datasets/prostopadloscian";
 
-   
+
 //-------------------------------------------------------
-    //  Wspolrzedne wierzcholkow beda zapisywane w pliku "Prostokat.dat"
-    //  Ponizsze metody powoduja, ze dane z pliku beda wizualizowane
-    //  na dwa sposoby:
-    //   1. Rysowane jako linia ciagl o grubosci 2 piksele
+    //  Wspolrzedne wierzcholkow pierwszego prostopadloscianu beda zapisywane w pliku "prostopadloscian1.dat"
+    //  Ponizsze metoda powoduje, ze dane z pliku beda wizualizowane jako linia ciagla o grubosci 2 piksele
     //
+
     Lacze.DodajNazwePliku("../datasets/prostopadloscian1.dat",PzG::RR_Ciagly,2);
+
     //
-    //   2. Rysowane jako zbior punktow reRecezentowanych Reczez kwadraty,
-    //      których połowa długości boku wynosi 2.
+    //  Ustawienie trybu rysowania 3D
     //
-    //Lacze.DodajNazwePliku("../datasets/prostokat.dat",PzG::RR_Punktowy,2);
-    //
-    //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
-    //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
-    //  jako wspolrzedne punktow podajemy tylko x,y.
-    //
+
     Lacze.ZmienTrybRys(PzG::TR_3D);
 
     Lacze.UstawZakresY(-200,200);
@@ -81,33 +80,76 @@ int main() {
                 std::cout << "m - wyswietl menu" << std::endl;
                 std::cout << "k - koniec dzialania programu" << std:: endl;
             }
+
             std::cout << "Twoj wybor: " << std::endl;
             std::cin >> option;
+
             switch(option) {
                 case 'k':
                     deleteCuboids("../datasets");
                     option = 'k'; break;
+
                 case 'p':
-                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
-                    std::cin >> cubeNumber;
+                    while(true) {
+                        std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                        std::cin >> cubeNumber;
+
+                        if(cubeNumber < 0 || cubeNumber > cubeAmount) {
+                            std::cin.setstate(std::ios_base::failbit);
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANIU" << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(100000, '\n');
+
+                        }
+                        else if(std::cin.fail()) {
+                            std::cin.clear();
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANU" << std::endl;
+                            std::cin.ignore(100000,'\n');
+                        }
+                        else 
+                            break;
+                    }
+
                     std::cout << "Podaj wspolrzedne wektora" << std::endl;
                     std::cin >> v;
+
                     scene.TranslationVector(v, cubeNumber - 1); // Ustaw wektor translacji
                     scene.Move(cubeNumber - 1); // Wykonaj ruch
+
                     filename = filename + std::to_string(cubeNumber) + ".dat";
                     scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
                     filename = filename = "../datasets/prostopadloscian";
                     scene.GetCuboid(cubeNumber - 1).Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
+
                     break;
+
                 case 'o':
-                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
-                    std::cin >> cubeNumber;
+                        while(true) {
+                        std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                        std::cin >> cubeNumber;
+                        if(cubeNumber < 0 || cubeNumber > cubeAmount) {
+                            std::cin.setstate(std::ios_base::failbit);
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANIU" << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(100000, '\n');
+                        }
+                        else if(std::cin.fail()) {
+                            std::cin.clear();
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANU" << std::endl;
+                            std::cin.ignore(100000,'\n');
+                        }
+                        else 
+                            break;
+                        }
+
                     std::cout << "Podaj osie oraz katy i zakoncz znakiem \".\"" << std::endl;
                     axis = '0';
                     scene.GetOneRotationMatrix(cubeNumber-1).Clear();
+
                     while(axis != '.') {
                         std::cin >> axis;
+
                         switch(axis) {
                             case 'x':
                                 std::cin >> angle;
@@ -147,48 +189,94 @@ int main() {
                                 break;
                         }
                     }
+
                     std::cout <<"Podaj ilosc obrotow" << std::endl;
                     std::cin >> amount;
+
                     for(int i=0; i<amount; ++i) 
                         scene.RotationMatrix(scene.GetOneRotationMatrix(cubeNumber - 1),cubeNumber - 1);
                     scene.Move(cubeNumber-1);
+
                     filename = filename + std::to_string(cubeNumber) + ".dat";
                     scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
                     filename = filename = "../datasets/prostopadloscian";
                     scene.GetCuboid(cubeNumber-1).Edges();
                     Lacze.Rysuj(); // Wyswietl wynik translacji
+
                     break;
                 case 't':
                     for(int i=0; i<amount; ++i)
                         scene.RotationMatrix(scene.GetOneRotationMatrix(cubeNumber - 1),cubeNumber - 1);
                     scene.Move(cubeNumber - 1);
+
                     filename = filename + std::to_string(cubeNumber) + ".dat";
                     scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
                     filename = filename = "../datasets/prostopadloscian";
                     scene.GetCuboid(cubeNumber - 1).Edges();
                     Lacze.Rysuj();
+
                     break;
                 case 'w':
-                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
-                    std::cin >> cubeNumber;
-                    std::cout << scene.GetCuboid(cubeNumber - 1); break; // Wyswietl wspolrzedne wierzcholkow prostokata
+                    while(true) {
+                        std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                        std::cin >> cubeNumber;
+                        if(cubeNumber < 0 || cubeNumber > cubeAmount) {
+                            std::cin.setstate(std::ios_base::failbit);
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANIU" << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(100000, '\n');
+
+                        }
+                        else if(std::cin.fail()) {
+                            std::cin.clear();
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANU" << std::endl;
+                            std::cin.ignore(100000,'\n');
+                        }
+                        else 
+                            break;
+                        }
+
+                    std::cout << scene.GetCuboid(cubeNumber - 1); // Wyswietl wspolrzedne wierzcholkow prostokata
+                    
+                    break; 
                 case 'n':
                     cubeAmount += 1;
                     scene.NewCuboid();
+
                     filename = filename + std::to_string(cubeAmount) + ".dat";
                     Lacze.DodajNazwePliku(filename.c_str(),PzG::RR_Ciagly,2);
                     scene.GetCuboid(cubeAmount - 1).Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
                     scene.GetCuboid(cubeAmount - 1).ZapisWspolrzednychDoPliku(filename.c_str());
                     Lacze.Rysuj(); // Wyswietlenie prostokata
                     filename = filename = "../datasets/prostopadloscian";
+
                     break;
                 case 'm':
                     option = '0';
+
                     break;
                 case 'r':
-                    std::cout << "Podaj numer prostopadloscianu " << std::endl;
-                    std::cin >> cubeNumber;
+                    while(true) {
+                        std::cout << "Podaj numer prostopadloscianu " << std::endl;
+                        std::cin >> cubeNumber;
+                        if(cubeNumber < 0 || cubeNumber > cubeAmount) {
+                            std::cin.setstate(std::ios_base::failbit);
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANIU" << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(100000, '\n');
+
+                        }
+                        else if(std::cin.fail()) {
+                            std::cin.clear();
+                            std::cerr << "NIE MA TAKIEGO PROSTOPADLOSCIANU" << std::endl;
+                            std::cin.ignore(100000,'\n');
+                        }
+                        else 
+                            break;
+                        }
+
                     scene.PrintRotation(cubeNumber-1);
+
                     break;
                 default:
                     option = '0';

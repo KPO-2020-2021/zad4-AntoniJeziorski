@@ -1,5 +1,6 @@
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/rebuild_cache.dir
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/test.dir
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/doc.dir
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/edit_cache.dir
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/NightlyMemCheck.dir
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/CMakeFiles/main.dir
