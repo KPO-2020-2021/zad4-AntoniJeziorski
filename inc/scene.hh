@@ -19,21 +19,23 @@ class Scene {
 
     public:
 
-        Scene(Cuboid);
+        //Scene(Cuboid);
 
-        void RotationMatrix(const Matrix3D, const int CubeNumber);
+        void RotationMatrix(const Matrix3D, const int);
 
-        void TranslationVector(const Vector3D, const int CubeNumber);
+        void TranslationVector(const Vector3D, const int);
 
-        void Move(int CubeNumber);
+        void Move(int);
 
-        Cuboid GetCuboid(int CubeNumber);
+        Cuboid GetCuboid(int);
 
-        void PrintRotation(int CubeNumber);
+        void PrintRotation(int);
 
-        Matrix3D GetOneRotationMatrix(int CubeNumber);
+        Matrix3D GetOneRotationMatrix(int);
 
-        void OneRotationMatrix(const Matrix3D, int CubeNumber);
+        void OneRotationMatrix(const Matrix3D, int);
 
         void NewCuboid();
+
+        void ClearOneRotationMatrix(int);
 };

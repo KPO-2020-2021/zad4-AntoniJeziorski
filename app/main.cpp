@@ -28,7 +28,7 @@ void deleteCuboids(const std::string& data) {
 }
 
 int main() {
-    double X[3]={2,3,3}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
+    double X[3]={-30,-30,-30}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
 
     Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
 
@@ -38,9 +38,9 @@ int main() {
 
     char option = '0', axis; // Zmienne do oslugi menu
 
-    Scene scene(Cub); // Utworzenie sceny
+    Scene scene; // Utworzenie sceny
 
-    int cubeNumber, cubeAmount = 1; // zmienna do obslugi wielu prostopadloscianow oraz licznik prostopadloscianow
+    int cubeNumber, cubeAmount = 0; // zmienna do obslugi wielu prostopadloscianow oraz licznik prostopadloscianow
 
     std::string filename = "../datasets/prostopadloscian";
 
@@ -63,9 +63,6 @@ int main() {
     Lacze.UstawZakresZ(-200,200);
 
     try {
-        scene.GetCuboid(0).Edges(); // Wyswietlenie dlugosci bokow oraz sprawdzenie, czy jest to prostokat
-        scene.GetCuboid(0).ZapisWspolrzednychDoPliku("../datasets/prostopadloscian1.dat");
-        Lacze.Rysuj(); // Wyswietlenie prostokata
         
         while(option != 'k') { // Dopoki nie zostanie podane k
             if(option == '0') //
@@ -145,8 +142,8 @@ int main() {
 
                     std::cout << "Podaj osie oraz katy i zakoncz znakiem \".\"" << std::endl;
                     axis = '0';
-                    scene.GetOneRotationMatrix(cubeNumber-1).Clear();
-
+                    scene.ClearOneRotationMatrix(cubeNumber-1);
+                    std:: cout << scene.GetOneRotationMatrix(cubeNumber-1) << std::endl<<std::endl;
                     while(axis != '.') {
                         std::cin >> axis;
 
@@ -208,7 +205,7 @@ int main() {
                     for(int i=0; i<amount; ++i)
                         scene.RotationMatrix(scene.GetOneRotationMatrix(cubeNumber - 1),cubeNumber - 1);
                     scene.Move(cubeNumber - 1);
-
+                    std::cout << scene.GetOneRotationMatrix(cubeNumber - 1) << std::endl;
                     filename = filename + std::to_string(cubeNumber) + ".dat";
                     scene.GetCuboid(cubeNumber - 1).ZapisWspolrzednychDoPliku(filename.c_str());
                     filename = filename = "../datasets/prostopadloscian";

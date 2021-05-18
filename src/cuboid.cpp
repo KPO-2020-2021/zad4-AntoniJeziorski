@@ -223,8 +223,7 @@ Cuboid::Cuboid(Vector3D a, Vector3D b, Vector3D c, Vector3D d, Vector3D e, Vecto
     DefaultCorners[5] = f;
     DefaultCorners[6] = g;
     DefaultCorners[7] = h;
-    for(int i = 0; i < CUBE; ++i)
-        Corners[i] = DefaultCorners[i];
+
 }
 
 
