@@ -6,17 +6,76 @@
 #include <cstdlib>
 #include <cmath>
 
+
+/*!
+ *
+ * \file matrix.hh
+ * \brief Plik zawierający definicję szablonu macierzy.
+ */
+
+/*!
+ *
+ * \brief Szablon klasy Vector.
+ * 
+ * Szablon umożliwiający utworzenie klasy Matrix o dowolnym rozmiarze
+ */ 
+
 template <unsigned int Size>
 class Matrix {
 
-double value[Size][Size];               // Wartosci macierzy
+    /*!
+     *
+     * \brief Dwuwymiarowa tablica typu double przetrzymująca wartości współrzędnych wektora
+     * 
+     */
+
+double value[Size][Size];               
 
 public:
-    Matrix(double [Size][Size]);            // Konstruktor klasy
 
-    Matrix();                               // Konstruktor klasy
+    /*!
+     * 
+     * \brief Konstruktor bezparametryczny klasy Matrix.
+     * 
+     * Tworzy macierz jedynkową
+     */
+
+    Matrix(); 
+
+    /*!
+     * 
+     * \brief Konstruktor parametryczny klasy Matrix.
+     *                                                 
+     * Tworzy macierz, której wpółrzędne mają wartości takie jak w tablicy podanej jako parametr.
+     * \param tmp - Dwuwymiarowa tablica typu double.                                                              
+     */
+
+    Matrix(double [Size][Size]);          
+    
+    /*!
+     *
+     * \brief Przeciążenie operatora mnożenia macierzyrazy wektor
+     * 
+     * \param this - pierwszy czynnik -  macierz
+     * 
+     * \param tmp - drugi czynnik - wektor
+     * 
+     * \return Wektor będący wynikiem mnożenia macierzy razy wektor podanych jako wskaźnik na parametr
+     */
 
     Vector<Size> operator * (const Vector<Size> tmp);           // Operator mnożenia przez wektor
+
+    /*!
+     * 
+     *
+     * \brief Przeciążenie operatora dodawania macierzy
+     * 
+     * \param this - pierwszy skladnik,
+     *      
+     * \param tmp - drugi skladnik.
+     * 
+     * \return Sumę dwóch macierzy przekazanych jako wskaźnik na parametr.
+     */
 
     Matrix operator + (const Matrix tmp);           // Operator dodawania macierzy
 
@@ -37,15 +96,6 @@ std::istream &operator>>(std::istream &in, Matrix<Size> &mat);  // Operator bito
 template <unsigned int Size>
 std::ostream &operator<<(std::ostream &out, Matrix<Size> const &mat); // Operator bitowy <<
 
-
-/******************************************************************************
- |  Konstruktor klasy Matrix.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Macierz wypelnione wartoscia 0.                                       |
- */
-
 template <unsigned int Size>
 Matrix<Size>::Matrix() {
     for (unsigned int i = 0; i < Size; ++i) {
@@ -60,15 +110,6 @@ Matrix<Size>::Matrix() {
     }
 }
 
-
-/******************************************************************************
- |  Konstruktor parametryczny klasy Matrix.                                   |
- |  Argumenty:                                                                |
- |      tmp - dwuwymiarowa tablica z elementami typu double.                  |
- |  Zwraca:                                                                   |
- |      Macierz wypelniona wartosciami podanymi w argumencie.                 |
- */
-
 template <unsigned int Size>
 Matrix<Size>::Matrix(double tmp[Size][Size]) {
     if((SIZE < 0) || (SIZE > 3)) {
@@ -81,18 +122,7 @@ Matrix<Size>::Matrix(double tmp[Size][Size]) {
             }
         }
     }
-    
 }
-
-
-/******************************************************************************
- |  Realizuje mnozenie macierzy przez wektor.                                 |
- |  Argumenty:                                                                |
- |      this - Matrix, czyli pierwszy skladnik mnozenia,                     |
- |      v - wektor, czyli drugi skladnik mnozenia.                            |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wektor.                    |
- */
 
 template <unsigned int Size>
 Vector<Size> Matrix<Size>::operator * (const Vector<Size> tmp) {
@@ -125,7 +155,6 @@ double &Matrix<Size>::operator()(unsigned int row, unsigned int column) {
     if (column >= Size) {
         throw std::runtime_error("Error: Macierz jest poza zasiegiem");
     }
-
     return value[row][column];
 }
 

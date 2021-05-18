@@ -1,15 +1,5 @@
 #include "scene.hh"
 
-
- /*    Scene::Scene(Cuboid c) {
-    Vector3D tmp1;
-    Matrix3D tmp2, tmp3;
-    cube.push_back(c);
-    Translation.push_back(tmp1);
-    Rotation.push_back(tmp2);
-    OneRotation.push_back(tmp3);
-}  */
-
 void Scene::RotationMatrix(const Matrix3D matrix, int CubeNumber) {
     Matrix3D tmp = matrix;
     Rotation.at(CubeNumber) = tmp * Rotation.at(CubeNumber);

@@ -276,3 +276,4 @@ bool Cuboid::ZapisWspolrzednychDoPliku( const char *sNazwaPliku) {
     StrmPlikowy.close();
     return !StrmPlikowy.fail();
 }
+

@@ -140,10 +140,11 @@ int main() {
                             break;
                         }
 
+                    scene.ClearOneRotationMatrix(cubeNumber-1);
+
                     std::cout << "Podaj osie oraz katy i zakoncz znakiem \".\"" << std::endl;
                     axis = '0';
-                    scene.ClearOneRotationMatrix(cubeNumber-1);
-                    std:: cout << scene.GetOneRotationMatrix(cubeNumber-1) << std::endl<<std::endl;
+
                     while(axis != '.') {
                         std::cin >> axis;
 

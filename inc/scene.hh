@@ -19,8 +19,6 @@ class Scene {
 
     public:
 
-        //Scene(Cuboid);
-
         void RotationMatrix(const Matrix3D, const int);
 
         void TranslationVector(const Vector3D, const int);

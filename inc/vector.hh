@@ -4,44 +4,160 @@
 #include <iostream>
 #include <iomanip>
 
+/*!
+ *
+ * \file vector.hh
+ * \brief Plik zawierający definicję szablonu wektora.
+ */
+
+/*!
+ *
+ * \brief Szablon klasy Vector.
+ * 
+ * Szablon umożliwiający utworzenie klasy Vector o dowolnym rozmiarze
+ */ 
 
 template <unsigned int Size>
 class Vector {
 
-    double size[Size];     //Tablica  wektora
+    /*!
+     *
+     * \brief Jednowymiarowa tablica typu double przetrzymująca wartości współrzędnych wektora
+     */
+
+    double size[Size];
 
     public:
 
-        Vector<Size>(); // Konstruktor bezparametryczny
+        /*!
+         * 
+         * \brief Konstruktor bezparametryczny klasy Vector.
+         * 
+         * Tworzy wektor wypelniony zerami
+         */
 
-        Vector<Size>(double [Size]); // Konstruktor parametryczny
+        Vector<Size>();
 
-        Vector<Size> operator + (const Vector<Size> &v); // Operator dodawania wektorow
+        /*!
+         * 
+         * \brief Konstruktor parametryczny klasy Vector.
+         *                                                 
+         * Tworzy wektor, którego wpółrzędne mają wartości takie jak w tablicy podanej jako parametr.
+         * \param tmp - Jednowymiarowa tablica typu double.                                                              
+         */
 
-        Vector<Size> operator - (const Vector<Size> &v); // Operator odejmowania wektorow
+        Vector<Size>(double [Size]); 
+       
+        /*!
+         * 
+         *
+         * \brief Przeciążenie operatora dodawania wektorów
+         * 
+         * \param this - pierwszy składnik dodawania,
+         *      
+         * \param v - drugi składnik dodawania.
+         * 
+         * \return Sume dwóch składników przekazanych jako wskaźnik na parametr.
+         */
 
-        Vector<Size> operator * (const double &tmp); // Operator mnozenia wektora razy double
+        Vector<Size> operator + (const Vector<Size> &v); 
 
-        Vector<Size> operator / (const double &tmp); // Operator dzielenia wektora przez double
+        /*!
+         * 
+         *
+         * \brief Przeciążenie operatora odejmowania wektorów
+         * 
+         * \param this - odjemna,
+         *      
+         * \param v - odjemnik.
+         * 
+         * \return Różnicę dwóch wektorów przekazanych jako wskaźnik na parametr.
+         */
 
-        const double &operator [] (unsigned int index) const; // Operator indeksujacy dla odczytu
+        Vector<Size> operator - (const Vector<Size> &v); 
+
+        /*!
+         * 
+         *
+         * \brief Przeciążenie operatora mnozenia wektora razy double
+         * 
+         * \param this - pierwszy czynnik mnozenia,
+         *      
+         * \param tmp - drugi czynnik mnozenia.
+         * 
+         * \return Iloczyn wektora pomnożonego razy double.
+         */
+
+        Vector<Size> operator * (const double &tmp);
+
+        /*!
+         *
+         * \brief Przeciążenie operatora dzielenia wektora przez double
+         * 
+         * \param this - dzielna
+         * 
+         * \param tmp - dzielnik
+         * 
+         * \return Iloraz wektora dzielonego przez double
+         */
+
+        Vector<Size> operator / (const double &tmp); 
+
+        /*!
+         *
+         * \brief Przeciązenie operatora indeksującego dla odczytu
+         * 
+         * \param index - indeks wektora
+         * 
+         * \return Wartosc wektora w danym miejscu tablicy jako stala.
+         */
+
+        const double &operator [] (unsigned int index) const; 
+
+        /*!
+         *
+         * \brief Przeciążenie operatora indeksującego dla zapisu
+         * 
+         * \param index - indeks wektora
+         * 
+         * \return Wartosc wektora w danym miejscu tablicy.
+         */ 
 
         double &operator [] (unsigned int index); // Operator indeksujacy dla zapisu
 };
 
+/*!
+ *
+ * \brief Przeciążenie operatora bitowego <<
+ * 
+ * Przeciążenie operatora bitowego << służące do wyświetlania wektora
+ * 
+ * \param out - referencja do strumienia ostream, do którego zostaną podane współrzędne wektora
+ * 
+ * \param tmp - Vector podany jako wskaźnik na parametr
+ * 
+ * \return Wypisuje wektor na podane wyjscie.
+ */
+
 template <unsigned int Size>
-std::ostream &operator << (std::ostream &out, Vector<Size> const &tmp); // Operator bitowy <<
+std::ostream &operator << (std::ostream &out, Vector<Size> const &tmp);
+
+/*!
+ *
+ * \brief Przeciążenie operatora bitowego >>
+ * 
+ * Przeciążenie operatora bitowego >> służące do wpisywania wektora
+ * 
+ * \param in - referencja do strumienia istream, do którego zostaną podane współrzędne wektora
+ * 
+ * \param tmp - Vector podany jako wskaźnik na parametr
+ * 
+ * \return Podaje wektor na zadane wejście
+ */
 
 template <unsigned int Size>
 std::istream &operator >> (std::istream &in, Vector<Size> &tmp); // Operator bitowy >>
 
-/******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartoscia 0.                                       |
- */
 template <unsigned int Size>
 Vector<Size>::Vector() {
     for (unsigned int i = 0; i < Size; ++i) {
@@ -49,14 +165,6 @@ Vector<Size>::Vector() {
     }
 }
 
-
-/******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      tmp - Jednowymiarowa tablica typu double.                             |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
- */
 template <unsigned int Size>
 Vector<Size>::Vector(double tmp[Size]) {
     if(Size < 0) {
@@ -69,17 +177,6 @@ Vector<Size>::Vector(double tmp[Size]) {
     }
 }
 
-
-/******************************************************************************
- |  Realizuje dodawanie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik dodawania,                                   |
- |      v - drugi skladnik dodawania.                                         |
- |  Zwraca:                                                                   |
- |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
- |      na parametr.                                                          |
- */
-
 template <unsigned int Size>
 Vector<Size> Vector<Size>::operator + (const Vector<Size> &v) {
     Vector<Size> result;
@@ -88,17 +185,6 @@ Vector<Size> Vector<Size>::operator + (const Vector<Size> &v) {
     }
     return result;
 }
-
-
-/******************************************************************************
- |  Realizuje odejmowanie dwoch wektorow.                                     |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik odejmowania,                                 |
- |      v - drugi skladnik odejmowania.                                       |
- |  Zwraca:                                                                   |
- |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
- */
 
 template <unsigned int Size>
 Vector<Size> Vector<Size>::operator - (const Vector<Size> &v) {
@@ -109,17 +195,6 @@ Vector<Size> Vector<Size>::operator - (const Vector<Size> &v) {
     return result;
 }
 
-
-/******************************************************************************
- |  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.               |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik mnozenia (wektor),                           |
- |      v - drugi skladnik mnozenia (liczba typu double).                     |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
- */
-
 template <unsigned int Size>
 Vector<Size> Vector<Size>::operator * (const double &tmp) {
     Vector result;
@@ -129,16 +204,6 @@ Vector<Size> Vector<Size>::operator * (const double &tmp) {
     return result;
 }
 
-
-/******************************************************************************
- |  Realizuje dzielenie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - licznik dzielenia,                                             |
- |      v - mianownik dzielenia.                                              |
- |  Zwraca:                                                                   |
- |      Iloraz dwoch skladnikow przekazanych jako wskaznik                    |
- |      na parametr.                                                          |
- */
 template <unsigned int Size>
 Vector<Size> Vector<Size>::operator / (const double &tmp) {
     Vector result;
@@ -152,14 +217,6 @@ Vector<Size> Vector<Size>::operator / (const double &tmp) {
     return result;
 }
 
-
-/******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
- */
 template <unsigned int Size>
 const double &Vector<Size>::operator [] (unsigned int index) const {
     if (index < 0 || index >= Size) {
@@ -168,26 +225,11 @@ const double &Vector<Size>::operator [] (unsigned int index) const {
     return size[index];
 }
 
-
-/******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy.                              |
- */
 template <unsigned int Size>
 double &Vector<Size>::operator[](unsigned int index) {
     return const_cast<double &>(const_cast<const Vector *>(this)->operator[](index));
 }
 
-
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      tmp - wektor.                                                         |
- */
 template <unsigned int Size>
 std::ostream &operator << (std::ostream &out, Vector<Size> const &tmp) {
     for (unsigned int i = 0; i < Size; ++i) {
@@ -196,13 +238,6 @@ std::ostream &operator << (std::ostream &out, Vector<Size> const &tmp) {
     return out;
 }
 
-
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      tmp - wektor.                                                         |
- */
 template <unsigned int Size>
 std::istream &operator >> (std::istream &in, Vector<Size> &tmp) {
     for (unsigned int i = 0; i < Size; ++i) {
@@ -216,5 +251,3 @@ std::istream &operator >> (std::istream &in, Vector<Size> &tmp) {
     
     return in;
 }
-
-

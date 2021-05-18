@@ -1,0 +1,25 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title=" " alt="" coords="5,528,60,555"/>
+<area shape="rect" id="node2" href="$class_scene.html#a5f610971e457890294882841ef57f8c2" title=" " alt="" coords="108,5,335,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a8141bb2a5037ea0cd75d1a65cb9e72c7" title=" " alt="" coords="164,56,279,83"/>
+<area shape="rect" id="node4" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a34bd48f57c0fd69c12bf4127a1cacd8f" title="Dodaje nazwę pliku." alt="" coords="135,107,308,149"/>
+<area shape="rect" id="node6" href="$class_cuboid.html#aa8f05fd1c0c371e7bffdabc2063035a7" title=" " alt="" coords="164,173,279,200"/>
+<area shape="rect" id="node7" href="$class_scene.html#ace7438c75a6da19cb6210a06c6b0cd5b" title=" " alt="" coords="153,224,290,251"/>
+<area shape="rect" id="node8" href="$class_scene.html#ab8ba40e10880694d37d6f8f4f53ba54d" title=" " alt="" coords="114,275,329,301"/>
+<area shape="rect" id="node9" href="$class_scene.html#ab8d3a3df792376b483f520e4bdfa4ac5" title=" " alt="" coords="169,325,274,352"/>
+<area shape="rect" id="node10" href="$class_scene.html#ab6cfa63971c69f669937a8051e5a5b2a" title=" " alt="" coords="150,376,293,403"/>
+<area shape="rect" id="node11" href="$class_scene.html#ab882e0ed1825d6b12cc7a677dc1d82e6" title=" " alt="" coords="125,427,317,453"/>
+<area shape="rect" id="node12" href="$class_scene.html#a50fb03849b3074463de560acd468fcc8" title=" " alt="" coords="144,477,299,504"/>
+<area shape="rect" id="node13" href="$class_scene.html#ac67b6421b090a53e0f9397234d679ab0" title=" " alt="" coords="138,528,305,555"/>
+<area shape="rect" id="node14" href="$matrix3_d_8hh.html#a3a3da5ad4c497789ad5d0d429a2df70c" title=" " alt="" coords="154,579,289,605"/>
+<area shape="rect" id="node15" href="$matrix3_d_8hh.html#a61047d0041d4fb96c16099758a3c9c7c" title=" " alt="" coords="154,629,289,656"/>
+<area shape="rect" id="node16" href="$matrix3_d_8hh.html#aef7debdeff7067806f164909f5d76f04" title=" " alt="" coords="154,680,289,707"/>
+<area shape="rect" id="node17" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a065f5b8402737cc62b0ad4f66d028335" title=" " alt="" coords="135,731,308,773"/>
+<area shape="rect" id="node18" href="$class_scene.html#a5c5cbef946542a73d2a9ec9c6949885c" title=" " alt="" coords="131,797,312,824"/>
+<area shape="rect" id="node19" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a9c91987dfc869d6fcea96205c581daef" title="Ustawia zakres osi OX." alt="" coords="135,849,308,890"/>
+<area shape="rect" id="node20" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a54c6e9cf9ab2eae479451fd953c2717c" title="Ustawia zakres osi OY." alt="" coords="135,914,308,955"/>
+<area shape="rect" id="node21" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a1dbbb2b86fb13b8632e6bad9df2a82e3" title="Ustawia zakres osi OZ." alt="" coords="135,979,308,1021"/>
+<area shape="rect" id="node22" href="$class_cuboid.html#a60868acbb0eb0c8180598a56a1cf0388" title=" " alt="" coords="116,1045,327,1086"/>
+<area shape="rect" id="node23" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a10950349b348fd3a3d4143e95337527c" title="Zmienia tryb rysowania." alt="" coords="135,1110,308,1151"/>
+<area shape="rect" id="node5" href="$namespace_pz_g.html#ae1ae4d36f66c77879380ba73da8e20e3" title=" " alt="" coords="383,115,509,141"/>
+</map>
