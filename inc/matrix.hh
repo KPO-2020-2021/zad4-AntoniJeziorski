@@ -15,7 +15,7 @@
 
 /*!
  *
- * \brief Szablon klasy Vector.
+ * \brief Szablon klasy Matrix.
  * 
  * Szablon umożliwiający utworzenie klasy Matrix o dowolnym rozmiarze
  */ 
@@ -25,7 +25,7 @@ class Matrix {
 
     /*!
      *
-     * \brief Dwuwymiarowa tablica typu double przetrzymująca wartości współrzędnych wektora
+     * \brief Dwuwymiarowa tablica typu double przetrzymująca wartości macierzy
      * 
      */
 
@@ -77,24 +77,105 @@ public:
      * \return Sumę dwóch macierzy przekazanych jako wskaźnik na parametr.
      */
 
-    Matrix operator + (const Matrix tmp);           // Operator dodawania macierzy
+    Matrix operator + (const Matrix tmp);           
 
-    Matrix operator * (const Matrix tmp);           // Operator mnozenia macierzy
+    /*!
+     * 
+     *
+     * \brief Przeciążenie operatora mnozenia macierzy
+     * 
+     * \param this - pierwszy czynnik,
+     *      
+     * \param tmp - drugi czynnik.
+     * 
+     * \return Iloczyn dwóch macierzy przekazanych jako wskaźnik na parametr.
+     */
 
-    double  &operator () (unsigned int row, unsigned int column);     // Operator funkcyjny dla odczytu
+    Matrix operator * (const Matrix tmp);           
+
+    /*!
+     *
+     * \brief Przeciążenie operatora funkcyjnego dla zapisu
+     * 
+     * \param row - numer wiersza
+     * 
+     * \param column - numer kolumny
+     * 
+     * \return Wartosc macierzy w danym miejscu tablicy
+     */
+
+    double  &operator () (unsigned int row, unsigned int column);     
+
+    /*!
+     *
+     * \brief Przeciążenie operatora funkcyjnego dla odczytu
+     * 
+     * \param row - numer wiersza
+     * 
+     * \param column - numer kolumny
+     * 
+     * \return Wartosc macierzy w danym miejscu tablicy jako stala
+     */
 
     const double &operator () (unsigned int row, unsigned int column) const; // operator funkcyjny dla zapisu
 
+    /*!
+     *
+     * \brief Metoda obliczająca wyznacznik macierzy
+     * 
+     * \param
+     * 
+     * \return Wyznacznik typu double z podanej macierzy
+     */
+
     double Determinant() const;
+
+    /*!
+     *
+     * \brief Przeciążenie operatora porównania macierzy
+     * 
+     * \param this - pierwsza macierz
+     * 
+     * \param tmp - druga macierz
+     * 
+     * \return true - jeśli macierze są takie same\n false - jeśli macierze są różne
+     */
 
     bool operator == (const Matrix tmp);
 };
 
+/*!
+ *
+ * \brief Przeciążenie operatora bitowego >>
+ * 
+ * Przeciążenie operatora bitowego >> służące do wpisywania macierzy
+ * 
+ * \param in - referencja do strumienia istream, do którego zostaną podane wartości macierzy
+ * 
+ * \param tmp - macierz podany jako wskaźnik na parametr
+ * 
+ * \return Podaje macierz na zadane wejście
+ */
+
+
 template <unsigned int Size>
 std::istream &operator>>(std::istream &in, Matrix<Size> &mat);  // Operator bitowy >>
 
+/*!
+ *
+ * \brief Przeciążenie operatora bitowego <<
+ * 
+ * Przeciążenie operatora bitowego << służące do wyświetlania macierzy
+ * 
+ * \param out - referencja do strumienia ostream, do którego zostaną podane wartości macierzy
+ * 
+ * \param tmp - macierz podany jako wskaźnik na parametr
+ * 
+ * \return Wypisuje macierz na podane wyjscie.
+ */
+
 template <unsigned int Size>
-std::ostream &operator<<(std::ostream &out, Matrix<Size> const &mat); // Operator bitowy <<
+std::ostream &operator<<(std::ostream &out, Matrix<Size> const &mat);
 
 template <unsigned int Size>
 Matrix<Size>::Matrix() {
@@ -136,14 +217,7 @@ Vector<Size> Matrix<Size>::operator * (const Vector<Size> tmp) {
 }
 
 
-/******************************************************************************
- |  Funktor macierzy                                                         |
- |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
- |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy.                             |
- */
+
 
 template <unsigned int Size>
 double &Matrix<Size>::operator()(unsigned int row, unsigned int column) {
@@ -159,14 +233,7 @@ double &Matrix<Size>::operator()(unsigned int row, unsigned int column) {
 }
 
 
-/******************************************************************************
- |  Funktor Matrixy                                                           |
- |  Argumenty:                                                                |
- |      row - numer wiersza.                                                  |
- |      column - numer kolumny.                                               |
- |  Zwraca:                                                                   |
- |      Wartosc macierzy w danym miejscu tablicy jako stala.                  |
- */
+
 
 template <unsigned int Size>
 const double &Matrix<Size>::operator () (unsigned int row, unsigned int column) const {
@@ -183,21 +250,14 @@ const double &Matrix<Size>::operator () (unsigned int row, unsigned int column) 
 }
 
 
-/******************************************************************************
- |  Przeciążenie dodawania macierzy                                           |
- |  Argumenty:                                                                |
- |      this - Matrix, czyli pierwszy skladnik dodawania,                     |
- |      v - wektor, czyli drugi skladnik dodawania.                           |
- |  Zwraca:                                                                   |
- |      Matrix - iloczyn dwóch podanych macierzy.                             |
- */
+
 
 template <unsigned int Size>
 Matrix<Size> Matrix<Size>::operator + (const Matrix<Size> tmp) {
     Matrix result;
     for (unsigned int i = 0; i < Size; ++i) {
         for (unsigned int j = 0; j < Size; ++j) {
-            result(i, j) = this->value[i][j] + tmp(i, j);
+            result(i, j) = value[i][j] + tmp(i, j);
         }
     }
     return result;
@@ -235,22 +295,12 @@ template <unsigned int Size>
 std::ostream &operator<<(std::ostream &out, const Matrix<Size> &mat) {
     for (unsigned int i = 0; i < Size; ++i) {
         for (unsigned int j = 0; j < Size; ++j) {
-            out << "| " << mat(i, j) << " | "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
+            out << "| " << mat(i, j) << " | ";
         }
         std::cout << std::endl;
     }
     return out;
 }
-
-
-/*!
- * Metoda tworzaca macierz obrotu
- * Argumenty:
- *      this - macierz, ktora zostanie wypelniona odpowiednimi wartosciami
- *      angle - kat o jaki chcemy obrocic prostokat
- */
-
-
 
 template <unsigned int Size>
 double Matrix<Size>::Determinant() const {
@@ -270,7 +320,6 @@ double Matrix<Size>::Determinant() const {
     det = tmp(0,0) * tmp(1,1);
     return det;   
 }
-
 
 template <unsigned int Size>
 Matrix<Size> Matrix<Size>::operator * (const Matrix<Size> tmp) {

@@ -1,13 +1,11 @@
 #include "cuboid.hh"
 
 /*!
- * Przeciazenie operator indeksujacego dla odczytu
- * Argumenty:
- *      index - numer miejsca w tablicy
- * Zwraca:
- *      Wektor reprezentujacy jeden z wierzcholkow jako stala
+ *
+ * \file cuboid.cpp
+ * 
+ * \brief Plik zawierający definicje metod dla klasy Cuboid
  */
-
 
 
 const Vector3D &Cuboid::operator [] (int index) const {
@@ -24,31 +22,9 @@ const Vector3D &Cuboid::operator () (int index) const {
     return DefaultCorners[index];
 }
 
-/*!
- * Przeciazenie operator indeksujacego dla zapisu
- * Argumenty:
- *      index - numer miejsca w tablicy
- * Zwraca:
- *      Wektor reprezentujacy jeden z wierzcholkow
- */
-
-
 Vector3D &Cuboid::operator[](int index) {
     return const_cast<Vector3D &>(const_cast<const Cuboid *>(this)->operator[](index));
 }
-
-
-
-
-
-/*!
- * Przeciazenie operatora bitowego dla wyswietladnia prostokata
- * Argumenty:
- *  &Strm - referencja do strumienia wyjsciowego
- *  &Pr - prostokat, ktory zostanie wyswietlony
- * Zwraca:
- *  Strumien wyjsciowy z prostokatem
- */
 
 std::ostream& operator << (std::ostream &Strm, const Cuboid &Pr) {
     for(int i=0; i < CUBE; i++) {
@@ -59,72 +35,12 @@ std::ostream& operator << (std::ostream &Strm, const Cuboid &Pr) {
     return Strm;
 }
 
-
-
-/*!
- * Przeciazenie operatora bitowego dla wczytywania prostokata
- * Argumenty:
- *  &Strm - referencja do strumienia wejsciowego
- *  &Pr -  referencja do wprowadzanego prostokata
- * Zwraca:
- *  Strumien wejsciowy z prostokatem
- */
-
 std::istream& operator >> (std::istream &Strm, Cuboid &Pr) {
     for(int i=0; i < CUBE; i++) {
         Strm >> Pr[i];
     }
     return Strm;
 }
-
-
-
-/*!
- * Realizuje translacje prostokata o zadany wektor
- * Argumenty:
- *  vector - wektor, o jaki ma zostac wykonana translacja
- * Zwraca:
- *  Prostokat po przesunieciu o zadany wektor
- */
-
-Cuboid Cuboid::Translation(const Vector3D vector) {
-    for(int i=0; i<CUBE; i++) {
-        this->Corners[i] = this->Corners[i] + vector;
-    }
-    return *this;
-}
-
-
-
-
-/*!
- * Realizuje obrot CUBEtanglea wokol poczatku ukladu wspolrzednych
- * o zadany kat podana ilosc razy
- * Argumenty:
- *  angle - kat o jaki zostanie wykonany obrot
- *  amount - ilosc obrotow
- * Zwraca:
- *  Prostokat po wykonaniu obrotu
- */
-
-Cuboid Cuboid::Rotation(const double angle, const int amount) {
-    Matrix3D Rotation;
-    Rotation = RotationMatrix_Z(angle);
-    for(int j=0; j < amount; j++){
-        for(int i=0; i<CUBE; i++) {
-            Corners[i] = Rotation * DefaultCorners[i];
-        }
-    }
-    return *this;
-}
-
-
-/*!
- * Wyswietla dlugosci bokow prostokata oraz sprawdza, czy przeciwne boki sa tej samej dlugosci
- * Argumenty:
- *  this - sprawdzany prostokat
- * Zwraca:
- */
 
 void Cuboid::Edges() const {
     double a, b, c, d, e, f, g, h, i, j, k, l; // dlugosci bokow
@@ -205,15 +121,6 @@ void Cuboid::Edges() const {
 
 }
 
-
-/*!
- * Konstruktor parametryczny prostokata
- * Argumenty:
- *  4 wektory, gdzie kazdy reprezentuje wspolrzedne jednego wierzcholka
- * Zwraca:
- *  Prostokat o zadanych wierzcholkach
- */
-
 Cuboid::Cuboid(Vector3D a, Vector3D b, Vector3D c, Vector3D d, Vector3D e, Vector3D f, Vector3D g, Vector3D h) {
     DefaultCorners[0] = a;
     DefaultCorners[1] = b;
@@ -226,31 +133,11 @@ Cuboid::Cuboid(Vector3D a, Vector3D b, Vector3D c, Vector3D d, Vector3D e, Vecto
 
 }
 
-
-
-/*!
- * Konstruktor bezparametryczny prostokata
- * Argumenty:
- * Zwraca:
- *  Tablice 4 wektorow z ktorych kazdy jest wypelniony zerami
- */
-
 Cuboid::Cuboid() {
     Vector3D x;
     for(int i = 0; i < CUBE; ++i)
         DefaultCorners[i] = x;
 }
-
-
-
-/*!
- * Realizuje zapis wspolrzednych wierzcholkow prostokata do pliku
- * Argumenty:
- *  *sNazwaPliku - wskaznik do pliku, w ktorym zostana zapisane wspolrzedne
- * Zwraca:
- *  Prada jesli zapis sie powiodl
- *  Falsz jesli zapis sie nie powiodl
- */
 
 bool Cuboid::ZapisWspolrzednychDoPliku( const char *sNazwaPliku) {
 

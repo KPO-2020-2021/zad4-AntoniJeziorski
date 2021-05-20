@@ -118,14 +118,14 @@ Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten 
 <div class="center"><img src="matrix_8hh__dep__incl.png" border="0" usemap="#inc_2matrix_8hhdep" alt=""/></div>
 <map name="inc_2matrix_8hhdep" id="inc_2matrix_8hhdep">
 <area shape="rect" title="Plik zawierający definicję szablonu macierzy." alt="" coords="148,5,256,32"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5,304,116,331"/>
-<area shape="rect" href="matrix3_d_8hh.html" title=" " alt="" coords="139,80,265,107"/>
+<area shape="rect" href="main_8cpp.html" title="Plik zawierający główną funkcję main." alt="" coords="5,304,116,331"/>
+<area shape="rect" href="matrix3_d_8hh.html" title="Plik zawierający definicję klasy Matrix3D." alt="" coords="139,80,265,107"/>
 <area shape="rect" href="matrix2_d_8hh.html" title=" " alt="" coords="327,80,453,107"/>
-<area shape="rect" href="cuboid_8hh.html" title=" " alt="" coords="95,155,203,181"/>
+<area shape="rect" href="cuboid_8hh.html" title="Plik zawierający definicję klasy Cuboid." alt="" coords="95,155,203,181"/>
 <area shape="rect" href="matrix3_d_8cpp.html" title=" " alt="" coords="227,155,361,181"/>
-<area shape="rect" href="scene_8hh.html" title=" " alt="" coords="121,229,224,256"/>
-<area shape="rect" href="cuboid_8cpp.html" title=" " alt="" coords="249,229,363,256"/>
-<area shape="rect" href="scene_8cpp.html" title=" " alt="" coords="140,304,251,331"/>
+<area shape="rect" href="scene_8hh.html" title="Plik zawierający definicję klasy Scene." alt="" coords="121,229,224,256"/>
+<area shape="rect" href="cuboid_8cpp.html" title="Plik zawierający definicje metod dla klasy Cuboid." alt="" coords="249,229,363,256"/>
+<area shape="rect" href="scene_8cpp.html" title="Plik zawierający definicje metod klasy Scene." alt="" coords="140,304,251,331"/>
 <area shape="rect" href="matrix2_d_8cpp.html" title=" " alt="" coords="385,155,518,181"/>
 </map>
 </div>
@@ -135,16 +135,18 @@ Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Komponenty</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html">Matrix&lt; Size &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Szablon klasy <a class="el" href="class_vector.html" title="Szablon klasy Vector.">Vector</a>.  <a href="class_matrix.html#details">Więcej...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Szablon klasy <a class="el" href="class_matrix.html" title="Szablon klasy Matrix.">Matrix</a>.  <a href="class_matrix.html#details">Więcej...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funkcje</h2></td></tr>
 <tr class="memitem:af5cfafac6f2c64055913116d14cb9a52"><td class="memTemplParams" colspan="2">template&lt;unsigned int Size&gt; </td></tr>
 <tr class="memitem:af5cfafac6f2c64055913116d14cb9a52"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_8hh.html#af5cfafac6f2c64055913116d14cb9a52">operator&gt;&gt;</a> (std::istream &amp;in, <a class="el" href="class_matrix.html">Matrix</a>&lt; Size &gt; &amp;mat)</td></tr>
+<tr class="memdesc:af5cfafac6f2c64055913116d14cb9a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przeciążenie operatora bitowego &gt;&gt;  <a href="matrix_8hh.html#af5cfafac6f2c64055913116d14cb9a52">Więcej...</a><br /></td></tr>
 <tr class="separator:af5cfafac6f2c64055913116d14cb9a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36795cafa80c2846aed311bd7c05c203"><td class="memTemplParams" colspan="2">template&lt;unsigned int Size&gt; </td></tr>
 <tr class="memitem:a36795cafa80c2846aed311bd7c05c203"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="matrix_8hh.html#a36795cafa80c2846aed311bd7c05c203">operator&lt;&lt;</a> (std::ostream &amp;out, <a class="el" href="class_matrix.html">Matrix</a>&lt; Size &gt; const &amp;mat)</td></tr>
+<tr class="memdesc:a36795cafa80c2846aed311bd7c05c203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przeciążenie operatora bitowego &lt;&lt;.  <a href="matrix_8hh.html#a36795cafa80c2846aed311bd7c05c203">Więcej...</a><br /></td></tr>
 <tr class="separator:a36795cafa80c2846aed311bd7c05c203"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
@@ -180,7 +182,18 @@ template&lt;unsigned int Size&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definicja w linii <a class="el" href="matrix_8hh_source.html#l00235">235</a> pliku <a class="el" href="matrix_8hh_source.html">matrix.hh</a>.</p>
+<p>Przeciążenie operatora bitowego &lt;&lt;. </p>
+<p>Przeciążenie operatora bitowego &lt;&lt; służące do wyświetlania macierzy</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>- referencja do strumienia ostream, do którego zostaną podane wartości macierzy</td></tr>
+    <tr><td class="paramname">tmp</td><td>- macierz podany jako wskaźnik na parametr</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wypisuje macierz na podane wyjscie. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="matrix_8hh_source.html#l00295">295</a> pliku <a class="el" href="matrix_8hh_source.html">matrix.hh</a>.</p>
 
 </div>
 </div>
@@ -212,7 +225,18 @@ template&lt;unsigned int Size&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definicja w linii <a class="el" href="matrix_8hh_source.html#l00215">215</a> pliku <a class="el" href="matrix_8hh_source.html">matrix.hh</a>.</p>
+<p>Przeciążenie operatora bitowego &gt;&gt; </p>
+<p>Przeciążenie operatora bitowego &gt;&gt; służące do wpisywania macierzy</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">in</td><td>- referencja do strumienia istream, do którego zostaną podane wartości macierzy</td></tr>
+    <tr><td class="paramname">tmp</td><td>- macierz podany jako wskaźnik na parametr</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Podaje macierz na zadane wejście </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="matrix_8hh_source.html#l00275">275</a> pliku <a class="el" href="matrix_8hh_source.html">matrix.hh</a>.</p>
 
 </div>
 </div>

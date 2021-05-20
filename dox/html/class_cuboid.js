@@ -6,8 +6,6 @@ var class_cuboid =
     [ "operator()", "class_cuboid.html#a9b20f9a82732a5ac054e3df9c58da330", null ],
     [ "operator[]", "class_cuboid.html#af4a06a0e84f6cd5576929ff203324445", null ],
     [ "operator[]", "class_cuboid.html#a07a687d9ca38998c19d8258bcb6eb4df", null ],
-    [ "Rotation", "class_cuboid.html#a0c56080919861f29358eabfcc9269ea0", null ],
-    [ "Translation", "class_cuboid.html#a6a6c91b66fd50d0f2f634bfcfba8e4bb", null ],
     [ "ZapisWspolrzednychDoPliku", "class_cuboid.html#a60868acbb0eb0c8180598a56a1cf0388", null ],
     [ "Corners", "class_cuboid.html#a75c000142f3744a6309b0f67751dee46", null ],
     [ "DefaultCorners", "class_cuboid.html#a328dbc38d3569d9896c288cb5979d478", null ]

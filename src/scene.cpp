@@ -1,5 +1,12 @@
 #include "scene.hh"
 
+/*!
+ *
+ * \file scene.cpp
+ * 
+ * \brief Plik zawierający definicje metod klasy Scene
+ */
+
 void Scene::RotationMatrix(const Matrix3D matrix, int CubeNumber) {
     Matrix3D tmp = matrix;
     Rotation.at(CubeNumber) = tmp * Rotation.at(CubeNumber);

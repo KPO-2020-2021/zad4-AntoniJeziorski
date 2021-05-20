@@ -1,9 +1,9 @@
 <map id="inc/matrix3D.hh" name="inc/matrix3D.hh">
-<area shape="rect" id="node1" title=" " alt="" coords="159,5,285,32"/>
-<area shape="rect" id="node2" href="$cuboid_8hh.html" title=" " alt="" coords="96,80,204,107"/>
+<area shape="rect" id="node1" title="Plik zawierający definicję klasy Matrix3D." alt="" coords="159,5,285,32"/>
+<area shape="rect" id="node2" href="$cuboid_8hh.html" title="Plik zawierający definicję klasy Cuboid." alt="" coords="96,80,204,107"/>
 <area shape="rect" id="node7" href="$matrix3_d_8cpp.html" title=" " alt="" coords="229,80,362,107"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="5,229,116,256"/>
-<area shape="rect" id="node4" href="$scene_8hh.html" title=" " alt="" coords="99,155,201,181"/>
-<area shape="rect" id="node6" href="$cuboid_8cpp.html" title=" " alt="" coords="226,155,341,181"/>
-<area shape="rect" id="node5" href="$scene_8cpp.html" title=" " alt="" coords="140,229,251,256"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Plik zawierający główną funkcję main." alt="" coords="5,229,116,256"/>
+<area shape="rect" id="node4" href="$scene_8hh.html" title="Plik zawierający definicję klasy Scene." alt="" coords="99,155,201,181"/>
+<area shape="rect" id="node6" href="$cuboid_8cpp.html" title="Plik zawierający definicje metod dla klasy Cuboid." alt="" coords="226,155,341,181"/>
+<area shape="rect" id="node5" href="$scene_8cpp.html" title="Plik zawierający definicje metod klasy Scene." alt="" coords="140,229,251,256"/>
 </map>

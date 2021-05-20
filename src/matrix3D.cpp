@@ -1,5 +1,11 @@
 #include "matrix3D.hh"
 
+/*!
+ *
+ * \file Plik zawierający definicje funkcji dla Matrix3D
+ */
+
+
 Matrix3D RotationMatrix_Z(const double angle) {
     Matrix3D tmp;
     tmp(0, 0) = cos(angle*M_PI/180);

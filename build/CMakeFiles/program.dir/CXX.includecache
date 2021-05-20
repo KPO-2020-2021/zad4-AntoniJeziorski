@@ -62,10 +62,6 @@ iomanip
 vector.hh
 ../inc/vector.hh
 
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/cuboid.cpp
-cuboid.hh
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/cuboid.hh
-
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.cpp
 scene.hh
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.hh

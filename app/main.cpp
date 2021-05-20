@@ -21,6 +21,22 @@
 #include "scene.hh"
 #include "../inc/lacze_do_gnuplota.hh"
 
+/*!
+ *
+ * \file main.cpp
+ * 
+ * \brief Plik zawierający główną funkcję main.
+ */
+
+
+/*!
+ *
+ * \brief Funkcja usuwająca zawartość folderu
+ * 
+ * \param data - scieżka folderu, którego zawartość chcemy usunąć
+ * 
+ * \return Usuwa wszystkie pliki w podanym folderze
+ */
 
 void deleteCuboids(const std::string& data) {
     for (const auto& entry : std::filesystem::directory_iterator(data)) 

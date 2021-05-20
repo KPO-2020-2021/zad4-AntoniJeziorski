@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 <div class="title">Dokumentacja pliku main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Plik zawierający główną funkcję main.  
+<a href="#details">Więcej...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -107,7 +110,7 @@ Wykres zależności załączania dla main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#app_2main_8cpp" alt=""/></div>
 <map name="app_2main_8cpp" id="app_2main_8cpp">
-<area shape="rect" title=" " alt="" coords="387,5,498,32"/>
+<area shape="rect" title="Plik zawierający główną funkcję main." alt="" coords="387,5,498,32"/>
 <area shape="rect" title=" " alt="" coords="412,453,492,480"/>
 <area shape="rect" title=" " alt="" coords="147,453,221,480"/>
 <area shape="rect" title=" " alt="" coords="94,80,165,107"/>
@@ -118,14 +121,14 @@ Wykres zależności załączania dla main.cpp:</div>
 <area shape="rect" title=" " alt="" coords="505,80,637,107"/>
 <area shape="rect" href="vector_8hh.html" title="Plik zawierający definicję szablonu wektora." alt="" coords="411,379,493,405"/>
 <area shape="rect" href="matrix_8hh.html" title="Plik zawierający definicję szablonu macierzy." alt="" coords="539,304,624,331"/>
-<area shape="rect" href="cuboid_8hh.html" title=" " alt="" coords="495,155,580,181"/>
-<area shape="rect" href="scene_8hh.html" title=" " alt="" coords="763,80,843,107"/>
+<area shape="rect" href="cuboid_8hh.html" title="Plik zawierający definicję klasy Cuboid." alt="" coords="495,155,580,181"/>
+<area shape="rect" href="scene_8hh.html" title="Plik zawierający definicję klasy Scene." alt="" coords="763,80,843,107"/>
 <area shape="rect" href="lacze__do__gnuplota_8hh.html" title=" " alt="" coords="866,80,1065,107"/>
 <area shape="rect" href="size_8hh.html" title=" " alt="" coords="547,453,615,480"/>
 <area shape="rect" title=" " alt="" coords="619,379,685,405"/>
 <area shape="rect" title=" " alt="" coords="709,379,771,405"/>
-<area shape="rect" href="vector3_d_8hh.html" title=" " alt="" coords="412,304,513,331"/>
-<area shape="rect" href="matrix3_d_8hh.html" title=" " alt="" coords="486,229,589,256"/>
+<area shape="rect" href="vector3_d_8hh.html" title="Plik zawierający definicję klasy Vector3D." alt="" coords="412,304,513,331"/>
+<area shape="rect" href="matrix3_d_8hh.html" title="Plik zawierający definicję klasy Matrix3D." alt="" coords="486,229,589,256"/>
 <area shape="rect" title=" " alt="" coords="918,155,981,181"/>
 <area shape="rect" title=" " alt="" coords="1005,155,1048,181"/>
 </map>
@@ -136,11 +139,16 @@ Wykres zależności załączania dla main.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Funkcje</h2></td></tr>
 <tr class="memitem:a8141bb2a5037ea0cd75d1a65cb9e72c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8141bb2a5037ea0cd75d1a65cb9e72c7">deleteCuboids</a> (const std::string &amp;data)</td></tr>
+<tr class="memdesc:a8141bb2a5037ea0cd75d1a65cb9e72c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja usuwająca zawartość folderu.  <a href="main_8cpp.html#a8141bb2a5037ea0cd75d1a65cb9e72c7">Więcej...</a><br /></td></tr>
 <tr class="separator:a8141bb2a5037ea0cd75d1a65cb9e72c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Dokumentacja funkcji</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Plik zawierający główną funkcję main. </p>
+
+<p class="definition">Definicja w pliku <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
 <a id="a8141bb2a5037ea0cd75d1a65cb9e72c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8141bb2a5037ea0cd75d1a65cb9e72c7">&#9670;&nbsp;</a></span>deleteCuboids()</h2>
 
@@ -157,13 +165,22 @@ Funkcje</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definicja w linii <a class="el" href="main_8cpp_source.html#l00025">25</a> pliku <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p>Funkcja usuwająca zawartość folderu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>- scieżka folderu, którego zawartość chcemy usunąć</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Usuwa wszystkie pliki w podanym folderze </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="main_8cpp_source.html#l00041">41</a> pliku <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 <div class="dynheader">
 Oto graf wywoływań tej funkcji:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_a8141bb2a5037ea0cd75d1a65cb9e72c7_icgraph.png" border="0" usemap="#main_8cpp_a8141bb2a5037ea0cd75d1a65cb9e72c7_icgraph" alt=""/></div>
 <map name="main_8cpp_a8141bb2a5037ea0cd75d1a65cb9e72c7_icgraph" id="main_8cpp_a8141bb2a5037ea0cd75d1a65cb9e72c7_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,223,32"/>
+<area shape="rect" title="Funkcja usuwająca zawartość folderu." alt="" coords="108,5,223,32"/>
 <area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
 </map>
 </div>
@@ -185,33 +202,33 @@ Oto graf wywoływań tej funkcji:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definicja w linii <a class="el" href="main_8cpp_source.html#l00030">30</a> pliku <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="main_8cpp_source.html#l00046">46</a> pliku <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 <div class="dynheader">
 Oto graf wywołań dla tej funkcji:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png" border="0" usemap="#main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" alt=""/></div>
 <map name="main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" id="main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph">
 <area shape="rect" title=" " alt="" coords="5,528,60,555"/>
-<area shape="rect" href="class_scene.html#a5f610971e457890294882841ef57f8c2" title=" " alt="" coords="108,5,335,32"/>
-<area shape="rect" href="main_8cpp.html#a8141bb2a5037ea0cd75d1a65cb9e72c7" title=" " alt="" coords="164,56,279,83"/>
+<area shape="rect" href="class_scene.html#a5f610971e457890294882841ef57f8c2" title="Metoda czyszczaca macierz ostatniej rotacji robiac z niej macierz jedynkowa." alt="" coords="108,5,335,32"/>
+<area shape="rect" href="main_8cpp.html#a8141bb2a5037ea0cd75d1a65cb9e72c7" title="Funkcja usuwająca zawartość folderu." alt="" coords="164,56,279,83"/>
 <area shape="rect" href="class_pz_g_1_1_lacze_do_g_n_u_plota.html#a34bd48f57c0fd69c12bf4127a1cacd8f" title="Dodaje nazwę pliku." alt="" coords="135,107,308,149"/>
-<area shape="rect" href="class_cuboid.html#aa8f05fd1c0c371e7bffdabc2063035a7" title=" " alt="" coords="164,173,279,200"/>
-<area shape="rect" href="class_scene.html#ace7438c75a6da19cb6210a06c6b0cd5b" title=" " alt="" coords="153,224,290,251"/>
-<area shape="rect" href="class_scene.html#ab8ba40e10880694d37d6f8f4f53ba54d" title=" " alt="" coords="114,275,329,301"/>
-<area shape="rect" href="class_scene.html#ab8d3a3df792376b483f520e4bdfa4ac5" title=" " alt="" coords="169,325,274,352"/>
-<area shape="rect" href="class_scene.html#ab6cfa63971c69f669937a8051e5a5b2a" title=" " alt="" coords="150,376,293,403"/>
-<area shape="rect" href="class_scene.html#ab882e0ed1825d6b12cc7a677dc1d82e6" title=" " alt="" coords="125,427,317,453"/>
-<area shape="rect" href="class_scene.html#a50fb03849b3074463de560acd468fcc8" title=" " alt="" coords="144,477,299,504"/>
-<area shape="rect" href="class_scene.html#ac67b6421b090a53e0f9397234d679ab0" title=" " alt="" coords="138,528,305,555"/>
-<area shape="rect" href="matrix3_d_8hh.html#a3a3da5ad4c497789ad5d0d429a2df70c" title=" " alt="" coords="154,579,289,605"/>
-<area shape="rect" href="matrix3_d_8hh.html#a61047d0041d4fb96c16099758a3c9c7c" title=" " alt="" coords="154,629,289,656"/>
-<area shape="rect" href="matrix3_d_8hh.html#aef7debdeff7067806f164909f5d76f04" title=" " alt="" coords="154,680,289,707"/>
+<area shape="rect" href="class_cuboid.html#aa8f05fd1c0c371e7bffdabc2063035a7" title="Metoda wyswietlająca długości boków prostopadłościanu oraz sprawdzająca, czy przeciwległe boki są tej..." alt="" coords="164,173,279,200"/>
+<area shape="rect" href="class_scene.html#ace7438c75a6da19cb6210a06c6b0cd5b" title="Metoda zwracajaca prostopadloscian ze sceny." alt="" coords="153,224,290,251"/>
+<area shape="rect" href="class_scene.html#ab8ba40e10880694d37d6f8f4f53ba54d" title="Metoda zwracajaca macierz ostatniej rotacji ze scnny." alt="" coords="114,275,329,301"/>
+<area shape="rect" href="class_scene.html#ab8d3a3df792376b483f520e4bdfa4ac5" title="Metoda obliczajaca wspolrzedne wierzcholkow po zadanych operacjach." alt="" coords="169,325,274,352"/>
+<area shape="rect" href="class_scene.html#ab6cfa63971c69f669937a8051e5a5b2a" title="Metoda sluzaca do dodania nowego prostopadloscianu do sceny." alt="" coords="150,376,293,403"/>
+<area shape="rect" href="class_scene.html#ab882e0ed1825d6b12cc7a677dc1d82e6" title="Metoda ustalajaca wartosc macierzy aktualnej rotacji." alt="" coords="125,427,317,453"/>
+<area shape="rect" href="class_scene.html#a50fb03849b3074463de560acd468fcc8" title="Metoda wyswietlajaca calkowita macierz rotacji." alt="" coords="144,477,299,504"/>
+<area shape="rect" href="class_scene.html#ac67b6421b090a53e0f9397234d679ab0" title="Metoda domnazajaca macierz jednej rotacji do macierzy calkowitej." alt="" coords="138,528,305,555"/>
+<area shape="rect" href="matrix3_d_8hh.html#a9dc0da0b8b54da3385bf9e1f5fad1200" title="Funkcja wypełniająca macierz odpowiendimi wartościami, które tworzą macierz rotacji w osi OX." alt="" coords="154,579,289,605"/>
+<area shape="rect" href="matrix3_d_8hh.html#a87dc52124d1f5b2b3201799f36a93769" title="Funkcja wypełniająca macierz odpowiendimi wartościami, które tworzą macierz rotacji w osi OY." alt="" coords="154,629,289,656"/>
+<area shape="rect" href="matrix3_d_8hh.html#abb063b994dec3955ed7e058d36058d01" title="Funkcja wypełniająca macierz odpowiendimi wartościami, które tworzą macierz rotacji w osi OZ." alt="" coords="154,680,289,707"/>
 <area shape="rect" href="class_pz_g_1_1_lacze_do_g_n_u_plota.html#a065f5b8402737cc62b0ad4f66d028335" title=" " alt="" coords="135,731,308,773"/>
-<area shape="rect" href="class_scene.html#a5c5cbef946542a73d2a9ec9c6949885c" title=" " alt="" coords="131,797,312,824"/>
+<area shape="rect" href="class_scene.html#a5c5cbef946542a73d2a9ec9c6949885c" title="Metoda zmniajaca wartosc wektora przesuniecia srodka prostopadloscianu." alt="" coords="131,797,312,824"/>
 <area shape="rect" href="class_pz_g_1_1_lacze_do_g_n_u_plota.html#a9c91987dfc869d6fcea96205c581daef" title="Ustawia zakres osi OX." alt="" coords="135,849,308,890"/>
 <area shape="rect" href="class_pz_g_1_1_lacze_do_g_n_u_plota.html#a54c6e9cf9ab2eae479451fd953c2717c" title="Ustawia zakres osi OY." alt="" coords="135,914,308,955"/>
 <area shape="rect" href="class_pz_g_1_1_lacze_do_g_n_u_plota.html#a1dbbb2b86fb13b8632e6bad9df2a82e3" title="Ustawia zakres osi OZ." alt="" coords="135,979,308,1021"/>
-<area shape="rect" href="class_cuboid.html#a60868acbb0eb0c8180598a56a1cf0388" title=" " alt="" coords="116,1045,327,1086"/>
+<area shape="rect" href="class_cuboid.html#a60868acbb0eb0c8180598a56a1cf0388" title="Metoda realizująca zapis współrzędnych wierzchołków prostopadłościanu do pliku." alt="" coords="116,1045,327,1086"/>
 <area shape="rect" href="class_pz_g_1_1_lacze_do_g_n_u_plota.html#a10950349b348fd3a3d4143e95337527c" title="Zmienia tryb rysowania." alt="" coords="135,1110,308,1151"/>
 <area shape="rect" href="namespace_pz_g.html#ae1ae4d36f66c77879380ba73da8e20e3" title=" " alt="" coords="383,115,509,141"/>
 </map>
