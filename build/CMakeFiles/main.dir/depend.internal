@@ -5,6 +5,7 @@ CMakeFiles/main.dir/app/main.cpp.o
  ../inc/cuboid.hh
  ../inc/matrix.hh
  ../inc/matrix3D.hh
+ ../inc/matrix4x4.hh
  ../inc/scene.hh
  ../inc/size.hh
  ../inc/vector.hh

@@ -6,9 +6,37 @@
 
 #IncludeRegexTransform: 
 
-../inc/example.h
-../tests/doctest/doctest.h
-../tests/doctest/doctest.h
+../inc/matrix.hh
+size.hh
+../inc/size.hh
+vector.hh
+../inc/vector.hh
+iostream
+-
+cstdlib
+-
+cmath
+-
+
+../inc/matrix4x4.hh
+matrix.hh
+-
+vector3D.hh
+-
+
+../inc/size.hh
+
+../inc/vector.hh
+size.hh
+../inc/size.hh
+iostream
+-
+iomanip
+-
+
+../inc/vector3D.hh
+vector.hh
+../inc/vector.hh
 
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
 signal.h
@@ -94,15 +122,9 @@ sys/time.h
 unistd.h
 -
 
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/dummy.cpp
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix4x4.cpp
 ../tests/doctest/doctest.h
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
-example.h
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/example.h
-
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/main.cpp
-../tests/doctest/doctest.h
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
-dummy.cpp
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/dummy.cpp
+matrix4x4.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/matrix4x4.hh
 

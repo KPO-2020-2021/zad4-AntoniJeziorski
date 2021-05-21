@@ -107,7 +107,7 @@ class Cuboid {
          * \return Jeden z wierzchołków jako stały wektor zawierający wartości lokalne.
          */
 
-        const Vector3D &operator () (int index) const; // Operator indeksujacy dla odczytu
+        Vector3D &operator () (int index); // Operator indeksujacy dla odczytu
 
         /*!
          *

@@ -28,6 +28,13 @@ CMakeFiles/program.dir/src/matrix3D.cpp.o
  ../inc/size.hh
  ../inc/vector.hh
  /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix3D.cpp
+CMakeFiles/program.dir/src/matrix4x4.cpp.o
+ ../inc/matrix.hh
+ ../inc/matrix4x4.hh
+ ../inc/size.hh
+ ../inc/vector.hh
+ ../inc/vector3D.hh
+ /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix4x4.cpp
 CMakeFiles/program.dir/src/scene.cpp.o
  ../inc/cuboid.hh
  ../inc/matrix.hh

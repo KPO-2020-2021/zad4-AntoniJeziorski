@@ -2,4 +2,4 @@
 
 #include "vector.hh"
 
-typedef Vector<2> vector2D;
+typedef Vector<2> Vector2D;

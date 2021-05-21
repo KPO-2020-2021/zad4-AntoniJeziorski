@@ -166,33 +166,6 @@ unit_tests/fast:
 	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-dummy.o: dummy.cpp.o
-
-.PHONY : dummy.o
-
-# target to build an object file
-dummy.cpp.o:
-	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/dummy.cpp.o
-.PHONY : dummy.cpp.o
-
-dummy.i: dummy.cpp.i
-
-.PHONY : dummy.i
-
-# target to preprocess a source file
-dummy.cpp.i:
-	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/dummy.cpp.i
-.PHONY : dummy.cpp.i
-
-dummy.s: dummy.cpp.s
-
-.PHONY : dummy.s
-
-# target to generate assembly for a file
-dummy.cpp.s:
-	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/dummy.cpp.s
-.PHONY : dummy.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -220,6 +193,168 @@ main.cpp.s:
 	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test_cuboid.o: test_cuboid.cpp.o
+
+.PHONY : test_cuboid.o
+
+# target to build an object file
+test_cuboid.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o
+.PHONY : test_cuboid.cpp.o
+
+test_cuboid.i: test_cuboid.cpp.i
+
+.PHONY : test_cuboid.i
+
+# target to preprocess a source file
+test_cuboid.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.i
+.PHONY : test_cuboid.cpp.i
+
+test_cuboid.s: test_cuboid.cpp.s
+
+.PHONY : test_cuboid.s
+
+# target to generate assembly for a file
+test_cuboid.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.s
+.PHONY : test_cuboid.cpp.s
+
+test_matrix2D.o: test_matrix2D.cpp.o
+
+.PHONY : test_matrix2D.o
+
+# target to build an object file
+test_matrix2D.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix2D.cpp.o
+.PHONY : test_matrix2D.cpp.o
+
+test_matrix2D.i: test_matrix2D.cpp.i
+
+.PHONY : test_matrix2D.i
+
+# target to preprocess a source file
+test_matrix2D.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix2D.cpp.i
+.PHONY : test_matrix2D.cpp.i
+
+test_matrix2D.s: test_matrix2D.cpp.s
+
+.PHONY : test_matrix2D.s
+
+# target to generate assembly for a file
+test_matrix2D.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix2D.cpp.s
+.PHONY : test_matrix2D.cpp.s
+
+test_matrix3D.o: test_matrix3D.cpp.o
+
+.PHONY : test_matrix3D.o
+
+# target to build an object file
+test_matrix3D.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3D.cpp.o
+.PHONY : test_matrix3D.cpp.o
+
+test_matrix3D.i: test_matrix3D.cpp.i
+
+.PHONY : test_matrix3D.i
+
+# target to preprocess a source file
+test_matrix3D.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3D.cpp.i
+.PHONY : test_matrix3D.cpp.i
+
+test_matrix3D.s: test_matrix3D.cpp.s
+
+.PHONY : test_matrix3D.s
+
+# target to generate assembly for a file
+test_matrix3D.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3D.cpp.s
+.PHONY : test_matrix3D.cpp.s
+
+test_matrix4x4.o: test_matrix4x4.cpp.o
+
+.PHONY : test_matrix4x4.o
+
+# target to build an object file
+test_matrix4x4.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o
+.PHONY : test_matrix4x4.cpp.o
+
+test_matrix4x4.i: test_matrix4x4.cpp.i
+
+.PHONY : test_matrix4x4.i
+
+# target to preprocess a source file
+test_matrix4x4.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.i
+.PHONY : test_matrix4x4.cpp.i
+
+test_matrix4x4.s: test_matrix4x4.cpp.s
+
+.PHONY : test_matrix4x4.s
+
+# target to generate assembly for a file
+test_matrix4x4.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.s
+.PHONY : test_matrix4x4.cpp.s
+
+test_vector2D.o: test_vector2D.cpp.o
+
+.PHONY : test_vector2D.o
+
+# target to build an object file
+test_vector2D.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.o
+.PHONY : test_vector2D.cpp.o
+
+test_vector2D.i: test_vector2D.cpp.i
+
+.PHONY : test_vector2D.i
+
+# target to preprocess a source file
+test_vector2D.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.i
+.PHONY : test_vector2D.cpp.i
+
+test_vector2D.s: test_vector2D.cpp.s
+
+.PHONY : test_vector2D.s
+
+# target to generate assembly for a file
+test_vector2D.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.s
+.PHONY : test_vector2D.cpp.s
+
+test_vector3D.o: test_vector3D.cpp.o
+
+.PHONY : test_vector3D.o
+
+# target to build an object file
+test_vector3D.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o
+.PHONY : test_vector3D.cpp.o
+
+test_vector3D.i: test_vector3D.cpp.i
+
+.PHONY : test_vector3D.i
+
+# target to preprocess a source file
+test_vector3D.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.i
+.PHONY : test_vector3D.cpp.i
+
+test_vector3D.s: test_vector3D.cpp.s
+
+.PHONY : test_vector3D.s
+
+# target to generate assembly for a file
+test_vector3D.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.s
+.PHONY : test_vector3D.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,12 +367,27 @@ help:
 	@echo "... fulltest"
 	@echo "... coverage"
 	@echo "... unit_tests"
-	@echo "... dummy.o"
-	@echo "... dummy.i"
-	@echo "... dummy.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test_cuboid.o"
+	@echo "... test_cuboid.i"
+	@echo "... test_cuboid.s"
+	@echo "... test_matrix2D.o"
+	@echo "... test_matrix2D.i"
+	@echo "... test_matrix2D.s"
+	@echo "... test_matrix3D.o"
+	@echo "... test_matrix3D.i"
+	@echo "... test_matrix3D.s"
+	@echo "... test_matrix4x4.o"
+	@echo "... test_matrix4x4.i"
+	@echo "... test_matrix4x4.s"
+	@echo "... test_vector2D.o"
+	@echo "... test_vector2D.i"
+	@echo "... test_vector2D.s"
+	@echo "... test_vector3D.o"
+	@echo "... test_vector3D.i"
+	@echo "... test_vector3D.s"
 .PHONY : help
 
 

@@ -4,8 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/dummy.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/dummy.cpp.o"
   "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/main.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/main.cpp.o"
+  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_cuboid.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o"
+  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix2D.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/test_matrix2D.cpp.o"
+  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix3D.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/test_matrix3D.cpp.o"
+  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix4x4.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o"
+  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_vector2D.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.o"
+  "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_vector3D.cpp" "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

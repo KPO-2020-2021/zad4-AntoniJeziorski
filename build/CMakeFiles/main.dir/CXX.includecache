@@ -34,6 +34,12 @@ cmath
 matrix.hh
 ../inc/matrix.hh
 
+../inc/matrix4x4.hh
+matrix.hh
+-
+vector3D.hh
+-
+
 ../inc/scene.hh
 size.hh
 ../inc/size.hh
@@ -87,6 +93,8 @@ matrix.hh
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/app/matrix.hh
 cuboid.hh
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/app/cuboid.hh
+matrix4x4.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/app/matrix4x4.hh
 scene.hh
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/app/scene.hh
 ../inc/lacze_do_gnuplota.hh

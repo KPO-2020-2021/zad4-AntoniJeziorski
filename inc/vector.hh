@@ -124,6 +124,8 @@ class Vector {
          */ 
 
         double &operator [] (unsigned int index); // Operator indeksujacy dla zapisu
+
+        bool operator == (const Vector& tmp);
 };
 
 /*!
@@ -250,4 +252,13 @@ std::istream &operator >> (std::istream &in, Vector<Size> &tmp) {
     }
     
     return in;
+}
+
+template <unsigned int Size>
+bool Vector<Size>::operator == (const Vector<Size>& tmp) {
+    for(unsigned int i = 0; i < Size; ++i) {
+            if(!(size[i] == tmp[i]))
+                return false;
+        }
+    return true;
 }

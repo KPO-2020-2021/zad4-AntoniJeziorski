@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../inc/cuboid.hh
-iostream
--
-cmath
--
-fstream
--
-vector3D.hh
-../inc/vector3D.hh
-matrix3D.hh
-../inc/matrix3D.hh
-
 ../inc/matrix.hh
 size.hh
 ../inc/size.hh
@@ -30,22 +18,10 @@ cstdlib
 cmath
 -
 
-../inc/matrix3D.hh
+../inc/matrix4x4.hh
 matrix.hh
-../inc/matrix.hh
-
-../inc/scene.hh
-size.hh
-../inc/size.hh
-cuboid.hh
-../inc/cuboid.hh
-vector
 -
-iostream
--
-cstdlib
--
-cmath
+vector3D.hh
 -
 
 ../inc/size.hh
@@ -62,7 +38,7 @@ iomanip
 vector.hh
 ../inc/vector.hh
 
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.cpp
-scene.hh
-/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/scene.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix4x4.cpp
+matrix4x4.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/src/matrix4x4.hh
 

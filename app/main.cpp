@@ -18,6 +18,7 @@
 #include "vector.hh"
 #include "matrix.hh"
 #include "cuboid.hh"
+#include "matrix4x4.hh"
 #include "scene.hh"
 #include "../inc/lacze_do_gnuplota.hh"
 
@@ -60,6 +61,9 @@ int main() {
 
     std::string filename = "../datasets/prostopadloscian";
 
+    Matrix4x4 mod = RotationMatrix(30,60,90, d);
+
+    std::cout << mod << std::endl << std:: endl;
 
 //-------------------------------------------------------
     //  Wspolrzedne wierzcholkow pierwszego prostopadloscianu beda zapisywane w pliku "prostopadloscian1.dat"
@@ -204,8 +208,23 @@ int main() {
                         }
                     }
 
-                    std::cout <<"Podaj ilosc obrotow" << std::endl;
-                    std::cin >> amount;
+                    while(true) {
+                        std::cout <<"Podaj ilosc obrotow" << std::endl;
+                        std::cin >> amount;
+                        if(amount <= 0) {
+                            std::cin.setstate(std::ios_base::failbit);
+                            std::cerr << "ILOSC OBROTOW NIE MOZE BYC UJEMNA" << std::endl;
+                            std::cin.clear();
+                            std::cin.ignore(100000, '\n');
+                        }
+                        else if(std::cin.fail()) {
+                            std::cin.clear();
+                            std::cerr << "BLAD ILOSCI OBROTOW" << std::endl;
+                            std::cin.ignore(100000,'\n');
+                        }
+                        else 
+                            break;
+                        }
 
                     for(int i=0; i<amount; ++i) 
                         scene.RotationMatrix(scene.GetOneRotationMatrix(cubeNumber - 1),cubeNumber - 1);

@@ -121,17 +121,6 @@ public:
 
     /*!
      *
-     * \brief Metoda obliczająca wyznacznik macierzy
-     * 
-     * \param
-     * 
-     * \return Wyznacznik typu double z podanej macierzy
-     */
-
-    double Determinant() const;
-
-    /*!
-     *
      * \brief Przeciążenie operatora porównania macierzy
      * 
      * \param this - pierwsza macierz
@@ -249,9 +238,6 @@ const double &Matrix<Size>::operator () (unsigned int row, unsigned int column) 
     return value[row][column];
 }
 
-
-
-
 template <unsigned int Size>
 Matrix<Size> Matrix<Size>::operator + (const Matrix<Size> tmp) {
     Matrix result;
@@ -262,14 +248,6 @@ Matrix<Size> Matrix<Size>::operator + (const Matrix<Size> tmp) {
     }
     return result;
 }
-
-
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      mat - Matrix.                                                         |
- */
 
 template <unsigned int Size>
 std::istream &operator>>(std::istream &in, Matrix<Size> &mat) {
@@ -283,42 +261,15 @@ std::istream &operator>>(std::istream &in, Matrix<Size> &mat) {
     return in;
 }
 
-
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      mat - Matrix.                                                         |
- */
-
 template <unsigned int Size>
 std::ostream &operator<<(std::ostream &out, const Matrix<Size> &mat) {
     for (unsigned int i = 0; i < Size; ++i) {
         for (unsigned int j = 0; j < Size; ++j) {
-            out << "| " << mat(i, j) << " | ";
+            out << std::fixed << std::setprecision(10) << "| " << mat(i, j) << " | ";
         }
         std::cout << std::endl;
     }
     return out;
-}
-
-template <unsigned int Size>
-double Matrix<Size>::Determinant() const {
-    double det, ratio;
-    Matrix<Size> tmp = *this;
-    for(unsigned int i=0; i < Size; i++) {
-        if(tmp(i,i) == 0) {
-            throw std::runtime_error("Blad macierzy");
-        }
-        for(int j = i + 1; j < Size; j++) {
-            ratio = tmp(j,i)/tmp(i,i);
-            for(int k = 0; k < Size; k++) {
-                tmp(j,k) = tmp(j,k) - ratio*tmp(i,k);
-            }
-        }
-    }
-    det = tmp(0,0) * tmp(1,1);
-    return det;   
 }
 
 template <unsigned int Size>

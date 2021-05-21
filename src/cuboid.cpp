@@ -15,7 +15,7 @@ const Vector3D &Cuboid::operator [] (int index) const {
     return Corners[index];
 }
 
-const Vector3D &Cuboid::operator () (int index) const {
+Vector3D &Cuboid::operator () (int index) {
     if (index < 0 || index >= CUBE) {
         throw std::runtime_error("Error:  Blad ilosci wierzcholkow!");
     }
