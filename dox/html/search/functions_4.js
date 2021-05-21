@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['getcuboid_193',['GetCuboid',['../class_scene.html#ace7438c75a6da19cb6210a06c6b0cd5b',1,'Scene']]],
-  ['getonerotationmatrix_194',['GetOneRotationMatrix',['../class_scene.html#ab8ba40e10880694d37d6f8f4f53ba54d',1,'Scene']]]
+  ['getcuboid_197',['GetCuboid',['../class_scene.html#a4c8c0255b76420708f5fee6d9732aeaf',1,'Scene']]],
+  ['getonerotationmatrix_198',['GetOneRotationMatrix',['../class_scene.html#a6208982b0b85e8c400eee70533cd187b',1,'Scene']]],
+  ['getrotation_199',['GetRotation',['../class_scene.html#a60881beddc15ce5f8b9b54e4282da0f5',1,'Scene']]],
+  ['gettranslation_200',['GetTranslation',['../class_scene.html#a7fd673cdbbadbc42795bfb844deac914',1,'Scene']]]
 ];

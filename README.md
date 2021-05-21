@@ -6,6 +6,12 @@
 ## Po uruchomieniu
 W scenie po uruchomieniu nie ma prostopadloscianow. Kazdy jeden (lacznie z pierwszym) nalezy dodac uzywajac opcji "n".
 
+## Dokumentacja
+Wygenerowana dokumentacja znajduje sie w pliku "index.html" w folderze dox.
+
+## Testy
+Po kompilacji w folderez build mozna uzyc polecenia ./unit_tests -s, aby wykonac testy i sprawdzic poprawnosc dzialania programu.
+
 ## Zakonczenie pracy dzialania programu
 Po uzyciu opcji "k" konczacej prace programu, zawartosc folderu datasets zostanie usunieta.
 
@@ -38,14 +44,14 @@ Things to remember:
 # --------------------------------------------------------------------------------
 set(SOURCES          # All .cpp files in src/
     src/lacze_do_gnuplota
-    src/Matrix2x2.cpp
-    src/Rectangle .cpp
-    src/Vector2D.cpp # etc.
+    src/matrix3D.cpp
+    src/cuboid.cpp
+    src/vector3D.cpp # etc.
 )
 set(TESTFILES        # All .cpp files in tests/
-    Vector2D.cpp
-    Matrix2x2.cpp
-    Rectangle.cpp # etc.
+    test_vector3D.cpp
+    test_matrix3D.cpp
+    test_cuboid.cpp # etc.
 )
 set(LIBRARY_NAME zadX)  # Default name for the library built from src/*.cpp (change if you wish)
 ```

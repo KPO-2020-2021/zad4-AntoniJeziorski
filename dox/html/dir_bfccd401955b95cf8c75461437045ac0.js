@@ -8,6 +8,7 @@ var dir_bfccd401955b95cf8c75461437045ac0 =
     [ "matrix.hh", "matrix_8hh.html", "matrix_8hh" ],
     [ "matrix2D.hh", "matrix2_d_8hh.html", "matrix2_d_8hh" ],
     [ "matrix3D.hh", "matrix3_d_8hh.html", "matrix3_d_8hh" ],
+    [ "matrix4x4.hh", "matrix4x4_8hh.html", "matrix4x4_8hh" ],
     [ "scene.hh", "scene_8hh.html", [
       [ "Scene", "class_scene.html", "class_scene" ]
     ] ],

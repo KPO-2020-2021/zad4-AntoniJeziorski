@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newcuboid_66',['NewCuboid',['../class_scene.html#ab6cfa63971c69f669937a8051e5a5b2a',1,'Scene']]]
+  ['newcuboid_70',['NewCuboid',['../class_scene.html#a1a72705a8635d59416e95672872693c6',1,'Scene']]]
 ];

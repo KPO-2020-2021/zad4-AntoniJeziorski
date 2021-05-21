@@ -1,16 +1,18 @@
 <map id="inc/size.hh" name="inc/size.hh">
-<area shape="rect" id="node1" title=" " alt="" coords="364,5,455,32"/>
-<area shape="rect" id="node2" href="$vector_8hh.html" title="Plik zawierający definicję szablonu wektora." alt="" coords="357,80,462,107"/>
-<area shape="rect" id="node6" href="$scene_8hh.html" title="Plik zawierający definicję klasy Scene." alt="" coords="611,379,714,405"/>
-<area shape="rect" id="node9" href="$matrix_8hh.html" title="Plik zawierający definicję szablonu macierzy." alt="" coords="227,155,335,181"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title="Plik zawierający główną funkcję main." alt="" coords="401,453,511,480"/>
-<area shape="rect" id="node4" href="$vector3_d_8hh.html" title="Plik zawierający definicję klasy Vector3D." alt="" coords="422,229,546,256"/>
-<area shape="rect" id="node14" href="$vector2_d_8hh.html" title=" " alt="" coords="473,155,597,181"/>
-<area shape="rect" id="node5" href="$cuboid_8hh.html" title="Plik zawierający definicję klasy Cuboid." alt="" coords="430,304,538,331"/>
-<area shape="rect" id="node8" href="$cuboid_8cpp.html" title="Plik zawierający definicje metod dla klasy Cuboid." alt="" coords="421,379,536,405"/>
-<area shape="rect" id="node7" href="$scene_8cpp.html" title="Plik zawierający definicje metod klasy Scene." alt="" coords="607,453,718,480"/>
-<area shape="rect" id="node10" href="$matrix3_d_8hh.html" title="Plik zawierający definicję klasy Matrix3D." alt="" coords="218,229,345,256"/>
-<area shape="rect" id="node12" href="$matrix2_d_8hh.html" title=" " alt="" coords="10,229,137,256"/>
-<area shape="rect" id="node11" href="$matrix3_d_8cpp.html" title=" " alt="" coords="213,304,347,331"/>
-<area shape="rect" id="node13" href="$matrix2_d_8cpp.html" title=" " alt="" coords="5,304,139,331"/>
+<area shape="rect" id="node1" title=" " alt="" coords="484,5,575,32"/>
+<area shape="rect" id="node2" href="$vector_8hh.html" title="Plik zawierający definicję szablonu wektora." alt="" coords="337,80,442,107"/>
+<area shape="rect" id="node6" href="$scene_8hh.html" title="Plik zawierający definicję klasy Scene." alt="" coords="598,379,701,405"/>
+<area shape="rect" id="node11" href="$matrix_8hh.html" title="Plik zawierający definicję szablonu macierzy." alt="" coords="475,155,583,181"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Plik zawierający główną funkcję main." alt="" coords="235,453,346,480"/>
+<area shape="rect" id="node4" href="$vector3_d_8hh.html" title="Plik zawierający definicję klasy Vector3D." alt="" coords="179,155,303,181"/>
+<area shape="rect" id="node16" href="$vector2_d_8hh.html" title=" " alt="" coords="327,155,451,181"/>
+<area shape="rect" id="node5" href="$cuboid_8hh.html" title="Plik zawierający definicję klasy Cuboid." alt="" coords="257,304,365,331"/>
+<area shape="rect" id="node9" href="$matrix4x4_8hh.html" title="Plik zawierający definicję klasy Matrix3D." alt="" coords="146,229,278,256"/>
+<area shape="rect" id="node8" href="$cuboid_8cpp.html" title="Plik zawierający definicje metod dla klasy Cuboid." alt="" coords="328,379,443,405"/>
+<area shape="rect" id="node7" href="$scene_8cpp.html" title="Plik zawierający definicje metod klasy Scene." alt="" coords="594,453,705,480"/>
+<area shape="rect" id="node10" href="$matrix4x4_8cpp.html" title="Plik zawierajacy definicje metody dla macierzy 4x4." alt="" coords="43,304,181,331"/>
+<area shape="rect" id="node12" href="$matrix3_d_8hh.html" title="Plik zawierający definicję klasy Matrix3D." alt="" coords="393,229,519,256"/>
+<area shape="rect" id="node14" href="$matrix2_d_8hh.html" title=" " alt="" coords="599,229,726,256"/>
+<area shape="rect" id="node13" href="$matrix3_d_8cpp.html" title=" " alt="" coords="389,304,523,331"/>
+<area shape="rect" id="node15" href="$matrix2_d_8cpp.html" title=" " alt="" coords="597,304,731,331"/>
 </map>

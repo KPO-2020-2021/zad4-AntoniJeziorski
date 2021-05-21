@@ -1,15 +1,15 @@
 <map id="main" name="main">
 <area shape="rect" id="node1" title=" " alt="" coords="5,528,60,555"/>
-<area shape="rect" id="node2" href="$class_scene.html#a5f610971e457890294882841ef57f8c2" title="Metoda czyszczaca macierz ostatniej rotacji robiac z niej macierz jedynkowa." alt="" coords="108,5,335,32"/>
+<area shape="rect" id="node2" href="$class_scene.html#a4e1fdab33b16aeb1567be5dfbba8a43e" title="Metoda czyszczaca macierz ostatniej rotacji robiac z niej macierz jedynkowa." alt="" coords="108,5,335,32"/>
 <area shape="rect" id="node3" href="$main_8cpp.html#a8141bb2a5037ea0cd75d1a65cb9e72c7" title="Funkcja usuwająca zawartość folderu." alt="" coords="164,56,279,83"/>
 <area shape="rect" id="node4" href="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a34bd48f57c0fd69c12bf4127a1cacd8f" title="Dodaje nazwę pliku." alt="" coords="135,107,308,149"/>
 <area shape="rect" id="node6" href="$class_cuboid.html#aa8f05fd1c0c371e7bffdabc2063035a7" title="Metoda wyswietlająca długości boków prostopadłościanu oraz sprawdzająca, czy przeciwległe boki są tej..." alt="" coords="164,173,279,200"/>
-<area shape="rect" id="node7" href="$class_scene.html#ace7438c75a6da19cb6210a06c6b0cd5b" title="Metoda zwracajaca prostopadloscian ze sceny." alt="" coords="153,224,290,251"/>
-<area shape="rect" id="node8" href="$class_scene.html#ab8ba40e10880694d37d6f8f4f53ba54d" title="Metoda zwracajaca macierz ostatniej rotacji ze scnny." alt="" coords="114,275,329,301"/>
-<area shape="rect" id="node9" href="$class_scene.html#ab8d3a3df792376b483f520e4bdfa4ac5" title="Metoda obliczajaca wspolrzedne wierzcholkow po zadanych operacjach." alt="" coords="169,325,274,352"/>
-<area shape="rect" id="node10" href="$class_scene.html#ab6cfa63971c69f669937a8051e5a5b2a" title="Metoda sluzaca do dodania nowego prostopadloscianu do sceny." alt="" coords="150,376,293,403"/>
-<area shape="rect" id="node11" href="$class_scene.html#ab882e0ed1825d6b12cc7a677dc1d82e6" title="Metoda ustalajaca wartosc macierzy aktualnej rotacji." alt="" coords="125,427,317,453"/>
-<area shape="rect" id="node12" href="$class_scene.html#a50fb03849b3074463de560acd468fcc8" title="Metoda wyswietlajaca calkowita macierz rotacji." alt="" coords="144,477,299,504"/>
+<area shape="rect" id="node7" href="$class_scene.html#a4c8c0255b76420708f5fee6d9732aeaf" title="Metoda zwracajaca prostopadloscian ze sceny." alt="" coords="153,224,290,251"/>
+<area shape="rect" id="node8" href="$class_scene.html#a6208982b0b85e8c400eee70533cd187b" title="Metoda zwracajaca macierz ostatniej rotacji ze sceny." alt="" coords="114,275,329,301"/>
+<area shape="rect" id="node9" href="$class_scene.html#a60881beddc15ce5f8b9b54e4282da0f5" title="Metoda wyswietlajaca calkowita macierz rotacji." alt="" coords="148,325,295,352"/>
+<area shape="rect" id="node10" href="$class_scene.html#ae70b2ea5d1722d3b4bd011587042996a" title="Metoda obliczajaca wspolrzedne wierzcholkow po zadanych operacjach." alt="" coords="169,376,274,403"/>
+<area shape="rect" id="node11" href="$class_scene.html#a1a72705a8635d59416e95672872693c6" title="Metoda sluzaca do dodania nowego prostopadloscianu do sceny." alt="" coords="150,427,293,453"/>
+<area shape="rect" id="node12" href="$class_scene.html#a6753fd33e3e5072b782341ffa32e1abe" title="Metoda ustalajaca wartosc macierzy aktualnej rotacji." alt="" coords="125,477,317,504"/>
 <area shape="rect" id="node13" href="$class_scene.html#ac67b6421b090a53e0f9397234d679ab0" title="Metoda domnazajaca macierz jednej rotacji do macierzy calkowitej." alt="" coords="138,528,305,555"/>
 <area shape="rect" id="node14" href="$matrix3_d_8hh.html#a9dc0da0b8b54da3385bf9e1f5fad1200" title="Funkcja wypełniająca macierz odpowiendimi wartościami, które tworzą macierz rotacji w osi OX." alt="" coords="154,579,289,605"/>
 <area shape="rect" id="node15" href="$matrix3_d_8hh.html#a87dc52124d1f5b2b3201799f36a93769" title="Funkcja wypełniająca macierz odpowiendimi wartościami, które tworzą macierz rotacji w osi OY." alt="" coords="154,629,289,656"/>

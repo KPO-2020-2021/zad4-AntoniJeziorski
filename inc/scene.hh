@@ -109,7 +109,7 @@ class Scene {
 
         /*!
          *
-         * \brief Metoda zwracajaca macierz ostatniej rotacji ze scnny
+         * \brief Metoda zwracajaca macierz ostatniej rotacji ze sceny
          * 
          * \param CubeNumber - numer prostopadloscianu
          * 
@@ -134,7 +134,13 @@ class Scene {
          *
          * \brief Metoda sluzaca do dodania nowego prostopadloscianu do sceny
          * 
+         * \param center - punkt bedacy srodkiem prostopadloscianu
          * 
+         * \param length_X - dlugosc bokow w osi OY
+         * 
+         * \param length_Y - dlugosc bokow w osi OY
+         * 
+         * \param length_Z - dlugosc bokow w osi OZ
          * 
          */
 
@@ -149,6 +155,15 @@ class Scene {
          */
 
         void ClearOneRotationMatrix(const int);
+
+        /*!
+         *
+         * \brief Metoda zwracajaca wektor przesuniecia lokalnego ukladu wspolrzednych wzgledem globalnego
+         * 
+         * \param CubeNumber - numer prostopadloscianu
+         * 
+         * \return wektor przesuniecia ukladu lokalnego
+         */
 
         Vector3D GetTranslation(const int);
 };
