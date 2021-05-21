@@ -45,13 +45,11 @@ void deleteCuboids(const std::string& data) {
 }
 
 int main() {
-    double X[3]={-30,-30,-30}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
+    double  angle; //  kat do obrotu
 
-    double lx, ly, lz;
+    double lx, ly, lz; // dlugosci bokow prostopadloscianu
 
-    Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v, center; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
-
-    Cuboid Cub(x, y, z, t,a,b,c,d);   // Utworzenie prostopadloscianu
+    Vector3D v, center; // wektor do translacji i  wektor reprezentujacy wspolrzedne srodka prostopadloscianu
 
     PzG::LaczeDoGNUPlota  Lacze;    // Ta zmienna jest potrzebna do wizualizacji rysunku Prostokata
 
@@ -59,11 +57,9 @@ int main() {
 
     Scene scene; // Utworzenie sceny
 
-    int cubeNumber, cubeAmount = 0; // zmienna do obslugi wielu prostopadloscianow oraz licznik prostopadloscianow
+    int cubeNumber, cubeAmount = 0, amount; // zmienna do obslugi wielu prostopadloscianow oraz licznik prostopadloscianow
 
     std::string filename = "../datasets/prostopadloscian";
-
-    std::cout << Cub << std::endl << std:: endl;
 
 //-------------------------------------------------------
     //  Wspolrzedne wierzcholkow pierwszego prostopadloscianu beda zapisywane w pliku "prostopadloscian1.dat"
