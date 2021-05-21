@@ -301,6 +301,33 @@ test_matrix4x4.cpp.s:
 	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.s
 .PHONY : test_matrix4x4.cpp.s
 
+test_scene.o: test_scene.cpp.o
+
+.PHONY : test_scene.o
+
+# target to build an object file
+test_scene.cpp.o:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o
+.PHONY : test_scene.cpp.o
+
+test_scene.i: test_scene.cpp.i
+
+.PHONY : test_scene.i
+
+# target to preprocess a source file
+test_scene.cpp.i:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_scene.cpp.i
+.PHONY : test_scene.cpp.i
+
+test_scene.s: test_scene.cpp.s
+
+.PHONY : test_scene.s
+
+# target to generate assembly for a file
+test_scene.cpp.s:
+	cd /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_scene.cpp.s
+.PHONY : test_scene.cpp.s
+
 test_vector2D.o: test_vector2D.cpp.o
 
 .PHONY : test_vector2D.o
@@ -382,6 +409,9 @@ help:
 	@echo "... test_matrix4x4.o"
 	@echo "... test_matrix4x4.i"
 	@echo "... test_matrix4x4.s"
+	@echo "... test_scene.o"
+	@echo "... test_scene.i"
+	@echo "... test_scene.s"
 	@echo "... test_vector2D.o"
 	@echo "... test_vector2D.i"
 	@echo "... test_vector2D.s"

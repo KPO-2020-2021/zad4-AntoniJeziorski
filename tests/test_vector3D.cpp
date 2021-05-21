@@ -110,3 +110,14 @@ TEST_CASE("test dzielenia wektora przez 0") {
     WARN_THROWS(vec/a);
 }
 
+TEST_CASE("test przeciazenia operatora == dla wektorow3D") {
+    Vector3D vec1, vec2;
+    CHECK((vec1 == vec2));
+}
+
+TEST_CASE("test przeciazenia operatora == dla falszy dla wektorow3D") {
+    double a[3] = {1,2,3};
+    Vector3D vec1, vec2(a);
+
+    CHECK(!(vec1 == vec2));
+}

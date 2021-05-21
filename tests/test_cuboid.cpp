@@ -2,9 +2,20 @@
 #include "vector3D.hh"
 #include "cuboid.hh"
 
+ TEST_CASE("test konstruktora bezparametrycznego prostopadloscianu oraz test prezciazenia operatora () dla odczytu wartosci lokalnych") {
+    Cuboid cube;
+    Vector3D empty;
+    CHECK(((cube(0)[0] == empty[0]) && (cube(0)[1] == empty[1]) && (cube(0)[2] == empty[2]) && 
+    (cube(1)[0] == empty[0]) && (cube(1)[1] == empty[1]) && (cube(1)[2] == empty[2]) && 
+    (cube(2)[0] == empty[0]) && (cube(2)[1] == empty[1]) && (cube(2)[2] == empty[2]) && 
+    (cube(3)[0] == empty[0]) && (cube(3)[1] == empty[1]) && (cube(3)[2] == empty[2]) && 
+    (cube(4)[0] == empty[0]) && (cube(4)[1] == empty[1]) && (cube(4)[2] == empty[2]) && 
+    (cube(5)[0] == empty[0]) && (cube(5)[1] == empty[1]) && (cube(5)[2] == empty[2]) && 
+    (cube(6)[0] == empty[0]) && (cube(6)[1] == empty[1]) && (cube(6)[2] == empty[2]) && 
+    (cube(7)[0] == empty[0]) && (cube(7)[1] == empty[1]) && (cube(7)[2] == empty[2])));
+}
 
-
-TEST_CASE("test konstruktora prostopadloscianu z parametrami") {
+TEST_CASE("test konstruktora prostopadloscianu z parametrami i") {
     double a1[3] = {1, 1, 1}, a2[3] = {10, 1,1}, a3[3] = {10, 20, 1}, a4[3] = {1, 20, 1},a5[3] = {1, 1, 1}, a6[6] = {10, 1, 1}, a7[3] = {10, 20, 1}, a8[3] = {1, 20, 1};
     Vector3D v1(a1), v2(a2), v3(a3), v4(a4),v5(a5),v6(a6),v7{a7},v8(a8);
     Vector3D res1(a1), res2(a2), res3(a3), res4(a4), res5(a5), res6(a6), res7(a7), res8(a8);
@@ -12,24 +23,36 @@ TEST_CASE("test konstruktora prostopadloscianu z parametrami") {
     CHECK(((cube(0) == res1) && (cube(1) == res2) && (cube(2) == res3) && (cube(3) == res4) && (cube(4) == res5) && (cube(5) == res6) && (cube(6) == res7) && (cube(7) == res8)));
 }
 
- TEST_CASE("test konstruktora bezparametrycznego prostopadloscianu") {
+TEST_CASE("test przeciazenia operatora [] dla odczytu wartosci globalnych") {
     Cuboid cube;
-    Vector3D empty;
-    CHECK(((cube(0) == empty) &&(cube(1) == empty) &&(cube(2) == empty) &&(cube(3) == empty) &&(cube(4) == empty) &&(cube(5) == empty) &&(cube(6) == empty) &&(cube(7) == empty)));
+    Vector3D vec;
+    CHECK(((cube[0] == vec) && (cube[1] == vec) && (cube[2] == vec) && (cube[3] == vec) && 
+    (cube[4] == vec) && (cube[5] == vec) && (cube[6] == vec) && (cube[7] == vec)));
 }
 
-/* TEST_CASE("test metody Translation") {
-    double a1[2] = {1, 1}, a2[2] = {10, 1}, a3[2] = {10, 20}, a4[2] = {1, 20}, a5[2] = {10, 20};
-    Vector v1(a1), v2(a2), v3(a3), v4(a4), v5(a5);
-    Rectangle Rec(v1, v2, v3, v4);
-    Rec.Translation(v5);
-    CHECK(((Rec[0][0] == 11) && (Rec[0][1] == 21) && (Rec[1][0] == 20) && (Rec[1][1] == 21) && (Rec[2][0] == 20) && (Rec[2][1] == 40) && (Rec[3][0] == 11) && (Rec[3][1] == 40)));
+TEST_CASE("test przeciazenia operatora [] dla zapisu wartosci globalnych") {
+    Cuboid cube;
+    double a[3] = {1,2,3};
+    Vector3D vec(a);
+    for(int i = 0; i<CUBE; ++i) {
+        cube[i] = vec;
+    }
+
+    CHECK(((cube[0] == vec) && (cube[1] == vec) && (cube[2] == vec) && (cube[3] == vec) && 
+    (cube[4] == vec) && (cube[5] == vec) && (cube[6] == vec) && (cube[7] == vec)));
 }
 
-TEST_CASE("test metody Rotation") {
-    double a1[2] = {1, 1}, a2[2] = {10, 1}, a3[2] = {10, 20}, a4[2] = {1, 20};
-    Vector v1(a1), v2(a2), v3(a3), v4(a4);
-    Rectangle Rec(v1, v2, v3, v4);
-    Rec.Rotation(180, 1);
-    CHECK(((Rec[0][0] >= -1-0.0000000001) && (Rec[0][1] >= -1-0.0000000001) && (Rec[1][0] >= -10-0.0000000001) && (Rec[1][1] >= -1-0.0000000001) && (Rec[2][0] >= -10-0.0000000001) && (Rec[2][1] >= -20-0.0000000001) && (Rec[3][0] >= -1-0.0000000001) && (Rec[3][1] >= -20-0.0000000001)));
-}  */
+TEST_CASE("test przeciazenia operatora <<") {
+    Cuboid cube;
+
+    std::ostringstream out;
+    out << cube;
+
+    CHECK("0.0000000000 0.0000000000 0.0000000000 \n0.0000000000 0.0000000000 0.0000000000 \n\n0.0000000000 0.0000000000 0.0000000000 \n0.0000000000 0.0000000000 0.0000000000 \n\n0.0000000000 0.0000000000 0.0000000000 \n0.0000000000 0.0000000000 0.0000000000 \n\n0.0000000000 0.0000000000 0.0000000000 \n0.0000000000 0.0000000000 0.0000000000 \n\n" == out.str());
+} 
+
+TEST_CASE("test zapisu do pliku") {
+    Cuboid cube;
+
+    CHECK((cube.ZapisWspolrzednychDoPliku("../datasets/test")));
+}

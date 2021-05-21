@@ -37,6 +37,16 @@ tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o
  ../inc/vector3D.hh
  /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
  /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix4x4.cpp
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o
+ ../inc/cuboid.hh
+ ../inc/matrix.hh
+ ../inc/matrix3D.hh
+ ../inc/scene.hh
+ ../inc/size.hh
+ ../inc/vector.hh
+ ../inc/vector3D.hh
+ /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+ /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_scene.cpp
 tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.o
  ../inc/size.hh
  ../inc/vector.hh

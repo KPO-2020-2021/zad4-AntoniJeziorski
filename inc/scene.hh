@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+#include <string.h>
 
 /*!
  *
@@ -82,7 +83,7 @@ class Scene {
          * 
          */
 
-        void Move(int);
+        void Move(const int);
 
         /*!
          *
@@ -93,7 +94,7 @@ class Scene {
          * \return Prostopadloscian o podanym numerze
          */
 
-        Cuboid GetCuboid(int);
+        Cuboid GetCuboid(const int);
 
         /*!
          *
@@ -104,7 +105,7 @@ class Scene {
          * \return Macierz rotacji prostopadloscianu o podanym numerze
          */
 
-        void PrintRotation(int);
+        Matrix3D GetRotation(const int);
 
         /*!
          *
@@ -115,7 +116,7 @@ class Scene {
          * \return Macierz ostantiej rotacji podanego prostopadloscianu
          */
 
-        Matrix3D GetOneRotationMatrix(int);
+        Matrix3D GetOneRotationMatrix(const int);
 
         /*!
          *
@@ -127,15 +128,17 @@ class Scene {
          * 
          */
 
-        void OneRotationMatrix(const Matrix3D, int);
+        void OneRotationMatrix(const Matrix3D,const int);
 
         /*!
          *
          * \brief Metoda sluzaca do dodania nowego prostopadloscianu do sceny
          * 
+         * 
+         * 
          */
 
-        void NewCuboid();
+        void NewCuboid(const Vector3D center,const double length_X,const double length_Y,const double length_Z);
 
         /*!
          *
@@ -145,5 +148,7 @@ class Scene {
          * 
          */
 
-        void ClearOneRotationMatrix(int);
+        void ClearOneRotationMatrix(const int);
+
+        Vector3D GetTranslation(const int);
 };

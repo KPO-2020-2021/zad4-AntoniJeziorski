@@ -93,3 +93,23 @@ TEST_CASE("test przeciazenia operatora * dla mnozenia macierzy razy macierz") {
     CHECK((test == result));
 }
 
+TEST_CASE("test funkcji RotationMatrix_X") {
+    double res[3][3] = {1,0,0,0,0,-1,0,1,0};
+    Matrix3D test, result(res);
+    test = RotationMatrix_X(90);
+    CHECK((test == result));
+}
+
+TEST_CASE("test funkcji RotationMatrix_Y") {
+    double res[3][3] = {0,0,1,0,1,0,-1,0,0};
+    Matrix3D test, result(res);
+    test = RotationMatrix_Y(90);
+    CHECK((test == result));
+}
+
+TEST_CASE("test funkcji RotationMatrix_Z") {
+    double res[3][3] = {0,-1,0,1,0,0,0,0,1};
+    Matrix3D test, result(res);
+    test = RotationMatrix_Z(90);
+    CHECK((test == result));
+}

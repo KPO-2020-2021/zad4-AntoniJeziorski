@@ -257,7 +257,7 @@ std::istream &operator >> (std::istream &in, Vector<Size> &tmp) {
 template <unsigned int Size>
 bool Vector<Size>::operator == (const Vector<Size>& tmp) {
     for(unsigned int i = 0; i < Size; ++i) {
-            if(!(size[i] == tmp[i]))
+            if(!(size[i] >= tmp[i] - MAX_DIFF && size[i] <= tmp[i] + MAX_DIFF))
                 return false;
         }
     return true;

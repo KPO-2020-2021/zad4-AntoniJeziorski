@@ -47,7 +47,9 @@ void deleteCuboids(const std::string& data) {
 int main() {
     double X[3]={-30,-30,-30}, Y[3]={22,3,3}, Z[3]={2,18,3}, T[3]={22,18,3}, A[3]={2,18,28}, B[3]={22,18,28}, C[3]={2,3,28}, D[3]={22,3,28}, angle, amount; // tablice typu double z wartosciami wierzcholkow bazowego prostokata, kat do obrotu, ilosc obrotow
 
-    Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
+    double lx, ly, lz;
+
+    Vector3D x(X), y(Y), z(Z), t(T),a(A),b(B), c(C), d(D), v, center; // Wektory reprezentujace wierzcholki prostokata i wektor do translacji
 
     Cuboid Cub(x, y, z, t,a,b,c,d);   // Utworzenie prostopadloscianu
 
@@ -61,9 +63,7 @@ int main() {
 
     std::string filename = "../datasets/prostopadloscian";
 
-    Matrix4x4 mod = RotationMatrix(30,60,90, d);
-
-    std::cout << mod << std::endl << std:: endl;
+    std::cout << Cub << std::endl << std:: endl;
 
 //-------------------------------------------------------
     //  Wspolrzedne wierzcholkow pierwszego prostopadloscianu beda zapisywane w pliku "prostopadloscian1.dat"
@@ -273,8 +273,12 @@ int main() {
                     
                     break; 
                 case 'n':
+                    std::cout << "Podaj wspolrzedne srodka prostopadloscianiu" << std::endl;
+                    std::cin >> center;
+                    std::cout << "Podaj dlugosci bokow w osiach X Y Z" << std::endl;
+                    std::cin >> lx >> ly >>lz;
                     cubeAmount += 1;
-                    scene.NewCuboid();
+                    scene.NewCuboid(center, lx, ly, lz);
 
                     filename = filename + std::to_string(cubeAmount) + ".dat";
                     Lacze.DodajNazwePliku(filename.c_str(),PzG::RR_Ciagly,2);
@@ -308,8 +312,7 @@ int main() {
                             break;
                         }
 
-                    scene.PrintRotation(cubeNumber-1);
-
+                    std::cout << scene.GetRotation(cubeNumber-1);
                     break;
                 default:
                     option = '0';

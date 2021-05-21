@@ -53,6 +53,8 @@ cstdlib
 -
 cmath
 -
+string.h
+-
 
 ../inc/size.hh
 

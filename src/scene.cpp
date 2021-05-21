@@ -7,35 +7,35 @@
  * \brief Plik zawierający definicje metod klasy Scene
  */
 
-void Scene::RotationMatrix(const Matrix3D matrix, int CubeNumber) {
+void Scene::RotationMatrix(const Matrix3D matrix,const int CubeNumber) {
     Matrix3D tmp = matrix;
     Rotation.at(CubeNumber) = tmp * Rotation.at(CubeNumber);
 }
 
-void Scene::TranslationVector(const Vector3D vector, int CubeNumber) {
+void Scene::TranslationVector(const Vector3D vector,const int CubeNumber) {
     Vector3D tmp = vector;
     Translation.at(CubeNumber) = Translation.at(CubeNumber) + tmp;
 }
 
-void Scene::Move(int CubeNumber) {
+void Scene::Move(const int CubeNumber) {
     for(int i=0; i<CUBE; ++i) {
         cube.at(CubeNumber)[i] = Rotation.at(CubeNumber) * cube.at(CubeNumber)(i) + Translation.at(CubeNumber);
     }
 }
 
-Cuboid Scene::GetCuboid(int CubeNumber) {
+Cuboid Scene::GetCuboid(const int CubeNumber) {
     return cube.at(CubeNumber);
 }
 
-void Scene::PrintRotation(int CubeNumber) {
-    std::cout << Rotation.at(CubeNumber) << std::endl;
+Matrix3D Scene::GetRotation(const int CubeNumber) {
+    return Rotation.at(CubeNumber);
 }
 
-Matrix3D Scene::GetOneRotationMatrix(int CubeNumber) {
+Matrix3D Scene::GetOneRotationMatrix(const int CubeNumber) {
     return OneRotation.at(CubeNumber);
 }
 
-void Scene::ClearOneRotationMatrix(int CubeNumber) {
+void Scene::ClearOneRotationMatrix(const int CubeNumber) {
     Matrix3D tmp;
     OneRotation.at(CubeNumber) = tmp;
 }
@@ -45,22 +45,13 @@ void Scene::OneRotationMatrix(const Matrix3D matrix, int CubeNumber) {
     OneRotation.at(CubeNumber) = tmp * OneRotation.at(CubeNumber);
 }
 
-void Scene::NewCuboid() {
-    Vector3D center;
-
+void Scene::NewCuboid(const Vector3D center,const double length_X,const double length_Y,const double length_Z) {
     Matrix3D tmp2, tmp3;
 
     Rotation.push_back(tmp2);
     OneRotation.push_back(tmp3);
 
-    double length_X, length_Y, length_Z;
-
-    std::cout << "Podaj srodek prostopadloscianu" << std::endl;
-    std::cin >> center;
     Translation.push_back(center);
-
-    std::cout << "Podaj dlugosci bokow w osiach X Y Z" << std::endl;
-    std::cin >> length_X >> length_Y >> length_Z;
     
     double half_X = length_X / 2, half_Y = length_Y / 2, half_Z = length_Z / 2;
 
@@ -84,4 +75,8 @@ void Scene::NewCuboid() {
 
     cube.push_back(newcube);
 
+}
+
+Vector3D Scene::GetTranslation(const int CubeNumber) {
+    return Translation.at(CubeNumber);
 }

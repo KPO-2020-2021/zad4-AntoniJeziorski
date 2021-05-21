@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/unit_tests.dir/test_matrix2D.cpp.o"
   "CMakeFiles/unit_tests.dir/test_matrix3D.cpp.o"
   "CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o"
+  "CMakeFiles/unit_tests.dir/test_scene.cpp.o"
   "CMakeFiles/unit_tests.dir/test_vector2D.cpp.o"
   "CMakeFiles/unit_tests.dir/test_vector3D.cpp.o"
 )

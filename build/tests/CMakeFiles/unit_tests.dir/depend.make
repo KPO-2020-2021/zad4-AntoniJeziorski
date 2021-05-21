@@ -37,6 +37,16 @@ tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o: ../inc/vector3D.hh
 tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o: ../tests/doctest/doctest.h
 tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o: ../tests/test_matrix4x4.cpp
 
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/cuboid.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/matrix.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/matrix3D.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/scene.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/size.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/vector.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../inc/vector3D.hh
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../tests/doctest/doctest.h
+tests/CMakeFiles/unit_tests.dir/test_scene.cpp.o: ../tests/test_scene.cpp
+
 tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.o: ../inc/size.hh
 tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.o: ../inc/vector.hh
 tests/CMakeFiles/unit_tests.dir/test_vector2D.cpp.o: ../inc/vector2D.hh

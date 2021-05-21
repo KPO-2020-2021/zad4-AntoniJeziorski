@@ -132,14 +132,3 @@ class Cuboid {
 
 std::ostream& operator << (std::ostream &Strm, const Cuboid &Pr); // Operator bitowy <<
 
-/*!
- * \brief Przeciazenie operatora bitowego >> dla wczytywania prostokata
- * 
- * \param Strm - referencja do strumienia wejsciowego na, do którego zostanie podany prostpadłościan
- * \param Pr -  referencja do wprowadzanego prostopadłościanu
- * 
- * \return Podaje prostopadłościan na zadane wejście
- */
-
-std::istream& operator >> (std::istream &Strm, Cuboid &Pr);
-

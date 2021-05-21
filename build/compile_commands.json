@@ -73,5 +73,10 @@
   "directory": "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests",
   "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build -I/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/inc -I/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o -c /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix4x4.cpp",
   "file": "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix4x4.cpp"
+},
+{
+  "directory": "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build/tests",
+  "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/build -I/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/inc -I/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/unit_tests.dir/test_scene.cpp.o -c /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_scene.cpp",
+  "file": "/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_scene.cpp"
 }
 ]

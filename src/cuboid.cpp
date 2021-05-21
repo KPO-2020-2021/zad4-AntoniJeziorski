@@ -35,13 +35,6 @@ std::ostream& operator << (std::ostream &Strm, const Cuboid &Pr) {
     return Strm;
 }
 
-std::istream& operator >> (std::istream &Strm, Cuboid &Pr) {
-    for(int i=0; i < CUBE; i++) {
-        Strm >> Pr[i];
-    }
-    return Strm;
-}
-
 void Cuboid::Edges() const {
     double a, b, c, d, e, f, g, h, i, j, k, l; // dlugosci bokow
 
