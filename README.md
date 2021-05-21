@@ -7,7 +7,7 @@
 W scenie po uruchomieniu nie ma prostopadloscianow. Kazdy jeden (lacznie z pierwszym) nalezy dodac uzywajac opcji "n".
 
 ## Zakonczenie pracy dzialania programu
-Po uzyciu opcji "k" konczoncej prace programu, zawartosc folderu datasets zostanie usunieta.
+Po uzyciu opcji "k" konczacej prace programu, zawartosc folderu datasets zostanie usunieta.
 
 
 ## Building
