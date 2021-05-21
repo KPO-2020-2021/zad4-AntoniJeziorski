@@ -15,6 +15,8 @@ Po kompilacji w folderez build mozna uzyc polecenia ./unit_tests -s, aby wykonac
 ## Zakonczenie pracy dzialania programu
 Po uzyciu opcji "k" konczacej prace programu, zawartosc folderu datasets zostanie usunieta.
 
+## Informacje dodatkowe
+1. Zadana modyfikacja zostala przetestowana w formie autotestu doctest.
 
 ## Building
 
