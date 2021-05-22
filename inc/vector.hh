@@ -125,6 +125,17 @@ class Vector {
 
         double &operator [] (unsigned int index); // Operator indeksujacy dla zapisu
 
+        /*!
+         *
+         * \brief Przeciazenie operatora ==
+         * 
+         * \param this - pierwszy porownywany wektor
+         * 
+         * \param tmp - drugi porownywany wektor
+         * 
+         * \return true jesli wektory sa rowne\n false jesli wektory nie sa rowne
+         */
+
         bool operator == (const Vector& tmp);
 };
 

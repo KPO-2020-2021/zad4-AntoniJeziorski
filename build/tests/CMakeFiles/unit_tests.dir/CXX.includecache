@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+../inc/cuboid.hh
+iostream
+-
+cmath
+-
+fstream
+-
+vector3D.hh
+../inc/vector3D.hh
+matrix3D.hh
+../inc/matrix3D.hh
+
 ../inc/matrix.hh
 size.hh
 ../inc/size.hh
@@ -18,9 +30,35 @@ cstdlib
 cmath
 -
 
+../inc/matrix2D.hh
+matrix.hh
+../inc/matrix.hh
+
 ../inc/matrix3D.hh
 matrix.hh
 ../inc/matrix.hh
+
+../inc/matrix4x4.hh
+matrix.hh
+-
+vector3D.hh
+-
+
+../inc/scene.hh
+size.hh
+../inc/size.hh
+cuboid.hh
+../inc/cuboid.hh
+vector
+-
+iostream
+-
+cstdlib
+-
+cmath
+-
+string.h
+-
 
 ../inc/size.hh
 
@@ -31,6 +69,10 @@ iostream
 -
 iomanip
 -
+
+../inc/vector2D.hh
+vector.hh
+../inc/vector.hh
 
 ../inc/vector3D.hh
 vector.hh
@@ -120,6 +162,22 @@ sys/time.h
 unistd.h
 -
 
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_cuboid.cpp
+../tests/doctest/doctest.h
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+vector3D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/vector3D.hh
+cuboid.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/cuboid.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix2D.cpp
+../tests/doctest/doctest.h
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+vector2D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/vector2D.hh
+matrix2D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/matrix2D.hh
+
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix3D.cpp
 ../tests/doctest/doctest.h
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
@@ -127,4 +185,28 @@ vector3D.hh
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/vector3D.hh
 matrix3D.hh
 /home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/matrix3D.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_matrix4x4.cpp
+../tests/doctest/doctest.h
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+matrix4x4.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/matrix4x4.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_scene.cpp
+../tests/doctest/doctest.h
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+scene.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/scene.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_vector2D.cpp
+../tests/doctest/doctest.h
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+vector2D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/vector2D.hh
+
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/test_vector3D.cpp
+../tests/doctest/doctest.h
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/doctest/doctest.h
+vector3D.hh
+/home/antek/Documents/PO/zad4/zad4-AntoniJeziorski/tests/vector3D.hh
 
