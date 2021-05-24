@@ -1,7 +1,8 @@
 ## Uruchamianie programu
 1. Nalezy stworzyc folder "build" jesli nie istnieje i nastepnie zbudowac w nim plik MakeFile.
-2. Po zbudowaniu pliku MakeFile w folderze build nalezy uzyc polecenia make.
-3. Po kompilacji mozna uruchomic program poleceniem ./main bedac w folderze build.
+2. Nalezy utworzyc folder "datasets", poniewaz git nie dodaje pustych folderow, a program po zakonczeniu usuwa pliki z tego folderu.
+3. Po zbudowaniu pliku MakeFile w folderze build nalezy uzyc polecenia make.
+4. Po kompilacji mozna uruchomic program poleceniem ./main bedac w folderze build.
 
 ## Po uruchomieniu
 W scenie po uruchomieniu nie ma prostopadloscianow. Kazdy jeden (lacznie z pierwszym) nalezy dodac uzywajac opcji "n".
